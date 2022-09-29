@@ -98,7 +98,7 @@ function classNames(...classes) {
 
 const Header = () => {
   return (
-    <div>
+    <div className='sticky top-0 '>
       <Popover className='relative bg-white '>
         <div className='max-w-7xl mx-auto px-4 sm:px-6'>
           <div className='flex justify-between items-center py-6 md:justify-start md:space-x-10'>

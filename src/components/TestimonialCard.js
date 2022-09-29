@@ -1,7 +1,29 @@
 import React from 'react';
 
 const TestimonialCard = () => {
-  return <div className='rounded'></div>;
+  return (
+    <div className='rounded-md border-2 border-blue-600 p-6 m-2'>
+      <p className='relative text-left'>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita
+        voluptas culpa sapiente alias molestiae.
+      </p>
+      <footer className='mt-6'>
+        <div className='flex items-start'>
+          <div className='flex-shrink-0 inline-flex rounded-full border-2 border-white'>
+            <img
+              className='h-12 w-12 rounded-full'
+              src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+              alt=''
+            />
+          </div>
+          <div className='ml-4'>
+            <div className='text-base font-medium '>Judith Black</div>
+            <div className='text-base font-medium '>CEO, Tuple</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
 };
 
 export default TestimonialCard;
