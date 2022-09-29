@@ -82,15 +82,6 @@ const resources = [
     icon: ShieldCheckIcon,
   },
 ];
-const recentPosts = [
-  { id: 1, name: 'Boost your conversion rate', href: '#' },
-  {
-    id: 2,
-    name: 'How to use search engine optimization to drive traffic to your site',
-    href: '#',
-  },
-  { id: 3, name: 'Improve your customer experience', href: '#' },
-];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -98,12 +89,12 @@ function classNames(...classes) {
 
 const Header = () => {
   return (
-    <div className='sticky top-0 '>
+    <div className='sticky top-0 z-20 backdrop-blur-lg bg-white '>
       <Popover className='relative bg-white '>
         <div className='max-w-7xl mx-auto px-4 sm:px-6'>
           <div className='flex justify-between items-center py-6 md:justify-start md:space-x-10'>
             <div className='flex justify-start lg:w-0 lg:flex-1'>
-              <a href='#'>
+              <a href='/'>
                 <span className='sr-only'>HCI Health</span>
                 <h1 className='text-lg font-bold'>HCI Healthcare</h1>
               </a>
@@ -191,7 +182,7 @@ const Header = () => {
               </Popover>
 
               <a
-                href='#'
+                href='#how-it-works'
                 className='text-base font-medium text-gray-500 hover:text-gray-900'
               >
                 How It Works
@@ -258,13 +249,13 @@ const Header = () => {
             </Popover.Group>
             <div className='hidden md:flex items-center justify-end md:flex-1 lg:w-0'>
               <a
-                href='#'
+                href='/login'
                 className='whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900'
               >
                 Log in
               </a>
               <a
-                href='#'
+                href='/create-account'
                 className='ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700'
               >
                 Register
@@ -346,15 +337,18 @@ const Header = () => {
                 </div>
                 <div>
                   <a
-                    href='#'
+                    href='/create-account'
                     className='w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700'
                   >
                     Register
                   </a>
                   <p className='mt-6 text-center text-base font-medium text-gray-500'>
                     Existing customer?
-                    <a href='#' className='text-blue-600 hover:text-blue-500'>
-                      Login in
+                    <a
+                      href='/login'
+                      className='text-blue-600 hover:text-blue-500'
+                    >
+                      Log in
                     </a>
                   </p>
                 </div>

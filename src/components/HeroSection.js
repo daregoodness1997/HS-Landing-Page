@@ -23,7 +23,12 @@ export default function HeroSection() {
           </div>
         </div>
         <div className='relative grid place-items-center w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full bg-gradient-to-t from-blue-200 '>
-          <img className=' object-fit' src='/assets/doc.png' alt='' />
+          <img
+            className='object-fit absolute right-16 top-12 hidden lg:block '
+            src='/assets/rec.png'
+            alt=''
+          />
+          <img className='object-fit' src='/assets/doc.png' alt='' />
         </div>
       </main>
     </>
