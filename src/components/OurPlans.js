@@ -315,6 +315,7 @@ const OurPlans = () => {
           </div>
         </div>
       </div>
+      <div className='py-8 '></div>
     </div>
   );
 };
