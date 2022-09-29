@@ -4,19 +4,18 @@ import {
   Features,
   Footer,
   Header,
-  Hero,
+  HeroSection,
   HowItWorks,
   OurPlans,
   Testimonial,
   WhoItIs,
 } from './components';
-import HeroSection from './components/HeroSection';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
 function App() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 10,
+    stiffness: 100,
     damping: 300,
     restDelta: 0.001,
   });
@@ -25,7 +24,6 @@ function App() {
       <motion.div className='progress-bar' style={{ scaleX }} />
       <Header />
       <HeroSection />
-      <Hero />
       <Features />
       <HowItWorks />
       <WhoItIs />
