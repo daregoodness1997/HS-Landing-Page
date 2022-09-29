@@ -55,31 +55,26 @@ const callsToAction = [
 ];
 const resources = [
   {
-    name: 'Help Center',
-    description:
-      'Get all of your questions answered in our forums or contact support.',
-    href: '#',
-    icon: SupportIcon,
-  },
-  {
-    name: 'Guides',
+    name: 'How It Works',
     description:
       'Learn how to maximize our platform to get the most out of it.',
-    href: '#',
+    href: '#how-it-works',
     icon: BookmarkAltIcon,
   },
   {
-    name: 'Events',
+    name: 'Plans',
     description:
       'See what meet-ups and other events we might be planning near you.',
-    href: '#',
+    href: '#plans',
     icon: CalendarIcon,
   },
+
   {
-    name: 'Security',
-    description: 'Understand how we take your privacy seriously.',
-    href: '#',
-    icon: ShieldCheckIcon,
+    name: 'Contact Us',
+    description:
+      'Get all of your questions answered in our forums or contact support.',
+    href: '#contact',
+    icon: SupportIcon,
   },
 ];
 
@@ -94,7 +89,7 @@ const Header = () => {
         <div className='max-w-7xl mx-auto px-4 sm:px-6'>
           <div className='flex justify-between items-center py-6 md:justify-start md:space-x-10'>
             <div className='flex justify-start lg:w-0 lg:flex-1'>
-              <a href='/'>
+              <a href='#hero-box'>
                 <span className='sr-only'>HCI Health</span>
                 <h1 className='text-lg font-bold'>HCI Healthcare</h1>
               </a>
