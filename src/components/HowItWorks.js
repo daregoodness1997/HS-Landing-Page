@@ -20,7 +20,7 @@ const features = [
 
 const HowItWorks = () => {
   return (
-    <div
+    <section
       className='relative bg-white py-16 sm:py-24 lg:py-32 bg-blue-50'
       id='how-it-works'
     >
@@ -53,7 +53,7 @@ const HowItWorks = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

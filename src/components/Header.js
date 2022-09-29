@@ -84,7 +84,7 @@ function classNames(...classes) {
 
 const Header = () => {
   return (
-    <div className='sticky top-0 z-20 backdrop-blur-lg bg-white '>
+    <header className='sticky top-0 z-20 backdrop-blur-lg bg-white '>
       <Popover className='relative bg-white '>
         <div className='max-w-7xl mx-auto px-4 sm:px-6'>
           <div className='flex justify-between items-center py-6 md:justify-start md:space-x-10'>
@@ -352,7 +352,7 @@ const Header = () => {
           </Popover.Panel>
         </Transition>
       </Popover>
-    </div>
+    </header>
   );
 };
 

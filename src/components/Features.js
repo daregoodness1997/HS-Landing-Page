@@ -53,7 +53,7 @@ const features = [
 const Features = () => {
   return (
     // <></>
-    <div className='relative bg-white py-16 sm:py-24 lg:py-32bg-white'>
+    <section className='relative bg-white py-16 sm:py-24 lg:py-32bg-white'>
       <div className='mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8'>
         <div className='lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center '>
           <div className='lg:col-start-2'>
@@ -88,7 +88,7 @@ const Features = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

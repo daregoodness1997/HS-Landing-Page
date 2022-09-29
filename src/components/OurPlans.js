@@ -50,7 +50,7 @@ function classNames(...classes) {
 
 const OurPlans = () => {
   return (
-    <div className='bg-gray-50' id='plans'>
+    <section className='bg-gray-50' id='plans'>
       <div className='relative bg-indigo-600'>
         {/* Overlapping background */}
         <div
@@ -197,7 +197,7 @@ const OurPlans = () => {
         </div>
       </div>
       <div className='py-8 '></div>
-    </div>
+    </section>
   );
 };
 

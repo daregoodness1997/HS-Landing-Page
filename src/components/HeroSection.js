@@ -15,7 +15,10 @@ export default function HeroSection() {
               platform that makes medical diagnosis easier and faste
             </p>
             <div className='mt-10 flex  sm:flex sm:justify-center lg:justify-start   lg:align-center'>
-              <input className=' box-border bg-gray-100 mr-4 py-4 px-4 w-full rounded-md ' />
+              <input
+                className=' box-border bg-gray-100 mr-4 py-4 px-4 w-full rounded-md '
+                placeholder='Enter your email address'
+              />
               <button className='text-base rounded-md text-white bg-blue-600  hover:bg-blue-700  px-4 '>
                 Register
               </button>
