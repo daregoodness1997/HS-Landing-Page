@@ -6,6 +6,7 @@ import {
   Header,
   HeroSection,
   HowItWorks,
+  Loader,
   OurPlans,
   Testimonial,
   WhoItIs,
@@ -13,7 +14,6 @@ import {
 import { motion, useScroll, useSpring } from 'framer-motion';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Loader from './components/Loader';
 import React, { useState } from 'react';
 
 function App() {
@@ -21,13 +21,13 @@ function App() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
-    damping: 300,
+    damping: 1000,
     restDelta: 0.001,
   });
 
   setTimeout(() => {
     setLoading(false);
-  }, 3000);
+  }, 2000);
 
   return (
     <>

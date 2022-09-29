@@ -7,6 +7,7 @@ import HowItWorks from './HowItWorks';
 import OurPlans from './OurPlans';
 import Testimonial from './Testimonial';
 import WhoItIs from './WhoItIs';
+import Loader from './Loader';
 
 export {
   Header,
@@ -18,4 +19,5 @@ export {
   HeroSection,
   Testimonial,
   WhoItIs,
+  Loader,
 };
