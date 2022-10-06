@@ -27,7 +27,9 @@ const Footer = () => {
           ))}
         </div>
         <div className='mt-8 md:mt-0 md:order-1'>
-          <p className='text-lg font-bold text-white'>HCI Healthcare</p>
+          <p className='text-lg font-bold text-white text-center'>
+            HCI Healthcare
+          </p>
         </div>
       </div>
       <div className='mt-8 md:mt-0 md:order-1'>
