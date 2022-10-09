@@ -1,0 +1,40 @@
+.title {
+  display: inline-block;
+}
+.title::after {
+  content: '';
+  width: 160px;
+  height: 6px;
+  background: linear-gradient(90deg, #1f56c3 0%, #407bff 58.05%, #93c1f9 100%);
+  display: block;
+  transition: width 0.3s ease-in-out;
+  margin: 16px 0;
+  border-radius: 4px;
+}
+
+.box {
+  margin: 20px auto;
+  width: 60%;
+  position: relative;
+  z-index: 20;
+}
+
+.negative {
+  margin-top: -20rem;
+}
+
+.pattern {
+  height: 60vh;
+}
+
+@media (max-width: 768px) {
+  .box {
+    width: 100%;
+  }
+  .negative {
+    margin-top: -8rem;
+  }
+  .pattern {
+    height: 30vh;
+  }
+}

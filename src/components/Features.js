@@ -54,12 +54,12 @@ const Features = () => {
   return (
     // <></>
     <section className='relative bg-white py-16 sm:py-24 lg:py-32bg-white'>
-      <div className='mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8'>
+      <div className='mx-auto max-w-md px-4 text-left sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8'>
         <div className='lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center '>
           <div className='lg:col-start-2'>
-            <h3 className='text-2xl font-extrabold text-gray-900 tracking-tight sm:text-3xl text-left'>
+            <h1 className='text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl title '>
               Features
-            </h3>
+            </h1>
             <p className='mt-3 text-lg text-gray-500 text-left'>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
               ex obcaecati natus eligendi delectus, cum deleniti sunt in labore

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MailIcon, PhoneIcon } from '@heroicons/react/outline';
+// import { MailIcon, PhoneIcon } from '@heroicons/react/outline';
 
 const CTA = () => {
   return (
@@ -10,14 +10,15 @@ const CTA = () => {
       <div className='relative max-w-7xl mx-auto lg:grid lg:grid-cols-5'>
         <div className='bg-gray-50 py-16 px-4 sm:px-6 lg:col-span-3 lg:px-8 lg:py-24 xl:pr-12'>
           <div className='max-w-lg mx-auto'>
-            <h2 className='text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl'>
-              Get in touch
-            </h2>
+            <img src='assets/doc-2.png' alt='doctor picture' />
+            <h1 className='text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl title mt-8'>
+              Help us improve this product
+            </h1>
             <p className='mt-3 text-lg leading-6 text-gray-500'>
-              Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat
-              massa dictumst amet. Sapien tortor lacus arcu.
+              Please provide us with useful feedback that would help us improve
+              on this product
             </p>
-            <dl className='mt-8 text-base text-gray-500'>
+            {/* <dl className='mt-8 text-base text-gray-500'>
               <div>
                 <dt className='sr-only'>Postal address</dt>
                 <dd>
@@ -45,14 +46,14 @@ const CTA = () => {
                   <span className='ml-3'>support@example.com</span>
                 </dd>
               </div>
-            </dl>
-            <p className='mt-6 text-base text-gray-500'>
+            </dl> */}
+            {/* <p className='mt-6 text-base text-gray-500'>
               Looking for careers?{' '}
               <a href='#' className='font-medium text-gray-700 underline'>
                 View all job openings
               </a>
               .
-            </p>
+            </p> */}
           </div>
         </div>
         <div className='bg-white py-16 px-4 sm:px-6 lg:col-span-2 lg:py-24 lg:px-8 xl:pl-12'>

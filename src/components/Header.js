@@ -15,6 +15,7 @@ import {
   XIcon,
 } from '@heroicons/react/outline';
 import { ChevronDownIcon } from '@heroicons/react/solid';
+import { Link } from 'react-router-dom';
 const features = [
   {
     name: 'Analytics',
@@ -89,10 +90,10 @@ const Header = () => {
         <div className='max-w-7xl mx-auto px-4 sm:px-6'>
           <div className='flex justify-between items-center py-6 md:justify-start md:space-x-10'>
             <div className='flex justify-start lg:w-0 lg:flex-1'>
-              <a href='#hero-box'>
+              <Link to='/'>
                 <span className='sr-only'>HCI Health</span>
                 <h1 className='text-lg font-bold'>HCI Healthcare</h1>
-              </a>
+              </Link>
             </div>
             <div className='-mr-2 -my-2 md:hidden'>
               <Popover.Button className='bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500'>
@@ -243,18 +244,18 @@ const Header = () => {
               </Popover>
             </Popover.Group>
             <div className='hidden md:flex items-center justify-end md:flex-1 lg:w-0'>
-              <a
-                href='/login'
+              <Link
+                to='/login'
                 className='whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900'
               >
                 Log in
-              </a>
-              <a
-                href='/create-account'
+              </Link>
+              <Link
+                to='/register'
                 className='ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700'
               >
                 Register
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -331,20 +332,20 @@ const Header = () => {
                   ))}
                 </div>
                 <div>
-                  <a
-                    href='/create-account'
+                  <Link
+                    to='/register'
                     className='w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700'
                   >
                     Register
-                  </a>
+                  </Link>
                   <p className='mt-6 text-center text-base font-medium text-gray-500'>
                     Existing customer?
-                    <a
-                      href='/login'
+                    <Link
+                      to='/login'
                       className='text-blue-600 hover:text-blue-500'
                     >
                       Log in
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>
