@@ -3,14 +3,14 @@ import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/outline';
 
-export default function Modal() {
-  const [open, setOpen] = useState(true);
+export default function Modal({ open, setOpen, title, paragraph, children }) {
+  console.log('Modal', open);
 
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as='div'
-        className='fixed z-10 inset-0 overflow-y-auto'
+        className='fixed z-10 inset-0 overflow-y-auto box-modal'
         onClose={setOpen}
       >
         <div className='flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0'>
@@ -44,24 +44,16 @@ export default function Modal() {
           >
             <div className='relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6'>
               <div>
-                <div className='mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100'>
-                  <CheckIcon
-                    className='h-6 w-6 text-green-600'
-                    aria-hidden='true'
-                  />
-                </div>
                 <div className='mt-3 text-center sm:mt-5'>
                   <Dialog.Title
                     as='h3'
-                    className='text-lg leading-6 font-medium text-gray-900'
+                    className='text-xl leading-6 font-bold text-gray-900'
                   >
-                    Payment successful
+                    {title}
                   </Dialog.Title>
                   <div className='mt-2'>
-                    <p className='text-sm text-gray-500'>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Consequatur amet labore.
-                    </p>
+                    <p className='text-sm text-gray-500'>{paragraph}</p>
+                    {children}
                   </div>
                 </div>
               </div>
@@ -71,7 +63,7 @@ export default function Modal() {
                   className='inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm'
                   onClick={() => setOpen(false)}
                 >
-                  Go back to dashboard
+                  Okay
                 </button>
               </div>
             </div>

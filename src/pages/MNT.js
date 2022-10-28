@@ -19,7 +19,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const NCTRegister = () => {
+const MNTResgister = () => {
   const [open, setOpen] = useState(false);
   console.log('Open', open);
 
@@ -28,12 +28,7 @@ const NCTRegister = () => {
   };
   return (
     <>
-      <Modal
-        open={open}
-        setOpen={setOpen}
-        title='BP Chest Paain'
-        paragraph='Hearth Failure, HR>/200/min'
-      />
+      <Modal open={open} setOpen={setOpen} title='Treat as AF' />
       <div className='relative bg-gray-50'>
         <img
           className='pattern'
@@ -44,21 +39,23 @@ const NCTRegister = () => {
         <div className='h-screen '>
           <div className='-mt-24 negative box  '>
             <h2 className='text-2xl font-extrabold tracking-tight text-white sm:text-3xl text-center my-4'>
-              NCT
+              Management of Narrow Complex Tachycardia (NCT)
             </h2>
             <div className='mt-12 bg-white  mt-6 sm:p-4  boxShadow-lg rounded-md flex  flex-col items-center justify-center inside'>
               <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12 my-8  px-48 py-16'>
-                <div>
-                  <h2>Irregular Rhythm</h2>
-                </div>
-                <div>
-                  <ul>
-                    <li>BP</li>
-                    <li>Chest Pain</li>
-                    <li>Hearth Failure </li>
-                    <li>{`HR>/200/min`}</li>
-                  </ul>
-                </div>
+                {posts.map(post => (
+                  <div
+                    key={post.title}
+                    className='flex flex-col items-center justify-center'
+                  >
+                    <img className='' src={post.image} alt={post.title} />
+                    <a href={post.href} className='block mt-4'>
+                      <p className='text-xl font-semibold text-gray-900'>
+                        {post.title}
+                      </p>
+                    </a>
+                  </div>
+                ))}
               </div>
               <button
                 type='button'
@@ -75,4 +72,4 @@ const NCTRegister = () => {
   );
 };
 
-export default NCTRegister;
+export default MNTResgister;

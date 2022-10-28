@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from '../components/Layout';
 import Home from '../pages/Home';
-import Register from '../pages/Register';
+import MNTResgister from '../pages/MNT';
+import NCTRegister from '../pages/NCT';
 
 const AppRoutes = () => {
   return (
@@ -10,7 +11,8 @@ const AppRoutes = () => {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path='/nct' element={<Register />} />
+          <Route path='/mnt' element={<MNTResgister />} />
+          <Route path='/nct' element={<NCTRegister />} />
         </Route>
       </Routes>
     </Router>
