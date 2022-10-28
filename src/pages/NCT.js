@@ -49,7 +49,9 @@ const NCTRegister = () => {
             <div className='mt-12 bg-white  mt-6 sm:p-4  boxShadow-lg rounded-md flex  flex-col items-center justify-center inside'>
               <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12 my-8  px-48 py-16'>
                 <div>
-                  <h2>Irregular Rhythm</h2>
+                  <h2 className='text-xl leading-6 font-bold text-gray-900'>
+                    Irregular Rhythm
+                  </h2>
                 </div>
                 <div>
                   <ul>
