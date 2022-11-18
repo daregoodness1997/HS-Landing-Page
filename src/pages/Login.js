@@ -9,13 +9,13 @@ import { Controller, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
-import AuthWrapper from '../../components/AuthWrapper';
-import Button from '../../components/buttons/Button';
-import Input from '../../components/inputs/basic/Input';
-import PasswordInput from '../../components/inputs/basic/Password';
-import Preloader from '../../components/utilities/Preloader';
-import { UserContext } from '../../context';
-import client from '../../feathers';
+import { Loader } from '../components';
+import AuthWrapper from '../components/app-ui/AuthWrapper';
+import Button from '../components/app-ui/Button';
+import Input from '../components/app-ui/Input';
+import PasswordInput from '../components/app-ui/PasswordInput';
+import { UserContext } from '../context';
+import client from '../feather';
 
 function Login() {
   const navigate = useNavigate();
@@ -62,7 +62,7 @@ function Login() {
     <>
       {/*  {console.error('hello there')} */}
       {loaderTimer ? (
-        <Preloader />
+        <Loader />
       ) : (
         <AuthWrapper paragraph='Login here as an organization'>
           <form onSubmit={handleSubmit(onSubmit)}>
