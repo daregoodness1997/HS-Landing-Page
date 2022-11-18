@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-import client from './feathers';
+import client from './feather';
 
 export default function MyUserProvider({ children }) {
   //const [data, setData] = useState(null)

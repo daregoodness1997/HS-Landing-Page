@@ -20,7 +20,7 @@ import client from '../feather';
 function Login() {
   const navigate = useNavigate();
   const { handleSubmit, control } = useForm();
-  const { setUser } = useContext(UserContext);
+  //   const { setUser } = useContext(UserContext);
   const [keepMeIn, setKeepMeIn] = useState(false);
   const [loaderTimer, setLoaderTimer] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -46,7 +46,7 @@ function Login() {
           ...res.user,
           currentEmployee: { ...res.user.employeeData[0] },
         };
-        setUser(user);
+        // setUser(user);
         localStorage.setItem('user', JSON.stringify(user));
         setLoading(false);
         toast.success('You successfully logged in');
