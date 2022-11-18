@@ -14,6 +14,11 @@ const AppRoutes = () => {
           <Route path='/mnt' element={<MNTResgister />} />
           <Route path='/nct' element={<NCTRegister />} />
         </Route>
+        <Route path='/app' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path='/mnt' element={<MNTResgister />} />
+          <Route path='/nct' element={<NCTRegister />} />
+        </Route>
       </Routes>
     </Router>
   );
