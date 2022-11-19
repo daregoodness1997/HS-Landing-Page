@@ -10,13 +10,11 @@ const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path='/mnt' element={<MNTResgister />} />
-          <Route path='/nct' element={<NCTRegister />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/app' element={<Layout />}></Route>
-        </Route>
+        <Route path='/' element={<Home />} />
+        <Route path='/mnt' element={<MNTResgister />} />
+        <Route path='/nct' element={<NCTRegister />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/app' element={<Layout />}></Route>
       </Routes>
     </Router>
   );

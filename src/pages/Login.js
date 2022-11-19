@@ -64,92 +64,94 @@ function Login() {
       {loaderTimer ? (
         <Loader />
       ) : (
-        <AuthWrapper paragraph='Login here as an organization'>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <ToastContainer theme='colored' />
+        <>
+          <AuthWrapper paragraph='Login here as an organization'>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <ToastContainer theme='colored' />
 
-            <Controller
-              name='email'
-              control={control}
-              render={({ field: { ref: _re, ...field } }) => (
-                <Input {...field} type='email' label='Email' />
-              )}
-            />
-            <Controller
-              name='password'
-              control={control}
-              render={({ field: { ref: _re, ...field } }) => (
-                <PasswordInput {...field} />
-              )}
-            />
-            <FormControl
-              component='fieldset'
-              sx={{ width: '1r00%', mt: 1, mb: 1 }}
-            >
-              <FormGroup>
-                <FormControlLabel
-                  label='Keep me Logged in'
-                  control={
-                    <Checkbox
-                      name='keepMeIn'
-                      onChange={(_, value) => setKeepMeIn(value)}
-                    />
-                  }
-                />
-              </FormGroup>
-            </FormControl>
-            <p>
-              Forgot password?
-              <Link
-                className='nav-link'
-                style={{
-                  padding: '0',
-                  background: 'transparent',
-                  color: 'blue',
-                  marginLeft: '0.6rem',
-                }}
-                to='/forgot-password'
+              <Controller
+                name='email'
+                control={control}
+                render={({ field: { ref: _re, ...field } }) => (
+                  <Input {...field} type='email' label='Email' />
+                )}
+              />
+              <Controller
+                name='password'
+                control={control}
+                render={({ field: { ref: _re, ...field } }) => (
+                  <PasswordInput {...field} />
+                )}
+              />
+              <FormControl
+                component='fieldset'
+                sx={{ width: '1r00%', mt: 1, mb: 1 }}
               >
-                Click here
-              </Link>
-            </p>
-            <Button
-              type='submit'
-              label='Login'
-              fullwidth='true'
-              loading={loading}
-            />
-          </form>
+                <FormGroup>
+                  <FormControlLabel
+                    label='Keep me Logged in'
+                    control={
+                      <Checkbox
+                        name='keepMeIn'
+                        onChange={(_, value) => setKeepMeIn(value)}
+                      />
+                    }
+                  />
+                </FormGroup>
+              </FormControl>
+              <p>
+                Forgot password?
+                <Link
+                  className='nav-link'
+                  style={{
+                    padding: '0',
+                    background: 'transparent',
+                    color: 'blue',
+                    marginLeft: '0.6rem',
+                  }}
+                  to='/forgot-password'
+                >
+                  Click here
+                </Link>
+              </p>
+              <Button
+                type='submit'
+                label='Login'
+                fullwidth='true'
+                loading={loading}
+              />
+            </form>
 
-          <div className='bottom-center'>
-            <p>or continue with</p>
-            <a href='#'>
-              <i className='bi bi-google' />
-            </a>
-            <a href=''>
-              <i className='bi bi-facebook' />
-            </a>
-            <a href=''>
-              <i className='bi bi-linkedin' />
-            </a>
+            <div className='bottom-center'>
+              <p>or continue with</p>
+              <a href='#'>
+                <i className='bi bi-google' />
+              </a>
+              <a href=''>
+                <i className='bi bi-facebook' />
+              </a>
+              <a href=''>
+                <i className='bi bi-linkedin' />
+              </a>
 
-            <p>
-              Want to create organization?
-              <Link
-                className='nav-link'
-                style={{
-                  padding: '0',
-                  background: 'transparent',
-                  color: 'blue',
-                  marginLeft: '0.6rem',
-                }}
-                to='/signup'
-              >
-                Click here
-              </Link>
-            </p>
-          </div>
-        </AuthWrapper>
+              <p>
+                Want to create organization?
+                <Link
+                  className='nav-link'
+                  style={{
+                    padding: '0',
+                    background: 'transparent',
+                    color: 'blue',
+                    marginLeft: '0.6rem',
+                  }}
+                  to='/signup'
+                >
+                  Click here
+                </Link>
+              </p>
+            </div>
+          </AuthWrapper>
+        </>
       )}
     </>
   );

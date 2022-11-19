@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import React from 'react';
 
@@ -6,7 +7,14 @@ import { InnerWrapper, SideBanner } from './style';
 
 const Side = () => {
   return (
-    <SideBanner>
+    <Box
+      className='side-banner'
+      sx={{
+        background: '#0364FF',
+        width: '35%',
+        height: '100vh',
+      }}
+    >
       <InnerWrapper>
         <motion.img
           src='/Healthstack.svg'
@@ -32,13 +40,13 @@ const Side = () => {
           </li>
         </ul>
       </InnerWrapper>
-      <img
+      {/* <img
         src='/hstack-backround.png'
         alt='background'
         className='fixed'
         aria-hidden='true'
-      />
-    </SideBanner>
+      /> */}
+    </Box>
   );
 };
 

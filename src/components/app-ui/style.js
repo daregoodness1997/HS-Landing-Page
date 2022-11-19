@@ -11,7 +11,7 @@ export const AuthContainer = styled.div`
   height: 100vh;
   padding-top: 12%;
   padding-bottom: 4%;
-  background: ${({ theme }) => theme.background};
+  background: '#002D5C';
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,7 +73,7 @@ export const AuthContainer = styled.div`
 export const SideBanner = styled.div`
   width: 35%;
   height: 100vh;
-  background: ${({ theme }) => theme.primary};
+  background-color:'#002D5C'
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,7 +91,7 @@ export const SideBanner = styled.div`
   }
 
   & h1 {
-    color: ${({ theme }) => theme.btnText};
+    color: #fff;
     width: 20rem;
     font-size: 2.56rem;
     margin-top: 2.19rem;
@@ -99,7 +99,7 @@ export const SideBanner = styled.div`
   }
 
   & ul {
-    color: ${({ theme }) => theme.btnText};
+    color: #fff;
     width: 20rem;
     font-size: 0.96rem;
     & li {
@@ -165,15 +165,15 @@ export const InputField = styled.input`
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  border: 1.5px solid ${({ theme }) => theme.grayTwo};
+  border: 1.5px solid '#fff';
   width: 100%;
   &:focus {
-    border: 2px solid ${({ theme }) => theme.blueTwo};
+    border: 2px solid '#002D5C';
   }
   &:focus + label {
     /* top: -0.5rem;
     left: 0.8rem; */
-    color: ${({ theme }) => theme.blueTwo};
+    color: '#002D5C';
     font-weight: 500;
     z-index: 10;
   }
@@ -222,12 +222,12 @@ export const BlueInputField = styled.input`
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  border: 1.5px solid ${({ theme }) => theme.grayTwo};
+  border: 1.5px solid '#eee';
   width: 100%;
   &:focus + label {
     /* top: -0.5rem;
     left: 0.8rem; */
-    color: ${({ theme }) => theme.blueTwo};
+    color: '#002D5C';
     font-weight: 500;
     z-index: 10;
   }

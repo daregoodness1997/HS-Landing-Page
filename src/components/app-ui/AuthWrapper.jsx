@@ -13,7 +13,7 @@ const AuthWrapper = ({ paragraph, children }) => {
   return (
     <PageWrapper>
       <Side />
-      <AuthContainer>
+      <AuthContainer className='auth-container'>
         <div className='aside-container'>
           <img src='/public/Healthstack.png' alt='' />
           <h2>Welcome to Healthstack</h2>
