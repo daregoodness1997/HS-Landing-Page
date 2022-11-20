@@ -42,3 +42,60 @@
     height: 30vh;
   }
 }
+
+.side-banner {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: hidden;
+  position: relative;
+  padding: 4rem;
+  padding-top: 14rem;
+}
+
+.side-banner h1 {
+  color: #fff;
+  width: 20rem;
+  font-size: 2.56rem;
+  margin-top: 2.19rem;
+  margin-bottom: 1.39rem;
+}
+
+.side-banner ul {
+  color: #fff;
+  width: 20rem;
+  font-size: 0.96rem;
+}
+
+.side-banner ul li {
+  margin-bottom: 0.853rem;
+  line-height: 1.493rem;
+}
+@media (max-width: 876px) {
+  .side-banner {
+    display: none;
+  }
+  .auth-container {
+    width: 100%;
+  }
+}
+
+.auth-container {
+  width: 65%;
+  height: 100vh;
+  padding-top: 12%;
+  padding-bottom: 4%;
+  background: '#002D5C';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  overflow: auto;
+  text-align: center;
+}
+
+.auth-container .aside-container {
+  height: calc(100vh - 16%);
+  padding: 0 1rem;
+}
+
