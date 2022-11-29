@@ -1,5 +1,8 @@
 import { Portal } from '@mui/material';
 import React from 'react';
+import { FlexBox } from '../../../ui/styled/global';
+import ModalBox from '../modal';
+import { GridWrapper } from '../styles';
 
 import LocationCard from './LocationCard';
 
@@ -8,7 +11,7 @@ const LocationModal = ({ locations, onSelectLocation, open, setOpen }) => {
   return (
     <Portal>
       <ModalBox open={open}>
-        <FlexBox className="row">
+        <FlexBox className='row'>
           <h4>Select a location</h4>
         </FlexBox>
 

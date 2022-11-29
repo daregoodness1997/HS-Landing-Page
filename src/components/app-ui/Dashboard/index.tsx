@@ -1,11 +1,10 @@
 /* eslint-disable no-lone-blocks */
-import React, { useContext, useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
-
-import { LayoutContent, LayoutWrapper } from "../../components/layout/styles";
-import SideMenu from "../../components/sidemenu";
-import TopMenu from "../../components/topmenu";
-import { UserContext } from "../../context";
+import React, { useContext, useEffect, useState } from 'react';
+import { Outlet } from 'react-router-dom';
+import { UserContext } from '../../../context';
+import { LayoutContent, LayoutWrapper } from '../layout/styles';
+import SideMenu from '../sidemenu';
+import TopMenu from '../topmenu';
 
 interface DashProps {
   children?: React.ReactNode | undefined;
@@ -21,7 +20,7 @@ const Dashboard: React.FC<DashProps> = ({ children }) => {
         top: 0,
         left: 0,
       });
-      document.title = "Health Stack - Dashboard";
+      document.title = 'Health Stack - Dashboard';
     }, []);
 
     const [isOpen, setIsOpen] = useState<Boolean>(false);
@@ -32,7 +31,7 @@ const Dashboard: React.FC<DashProps> = ({ children }) => {
           {/*  {locationType && ( */}
           <TopMenu isOpen={isOpen} handleClick={() => setIsOpen(!isOpen)} />
           {/*  )} */}
-          <div className="layout__content-main">
+          <div className='layout__content-main'>
             {children}
             <Outlet />
           </div>

@@ -1,11 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-
-import { UserContext } from '../../context';
-import client from '../../feathers';
-import { Views } from '../../hsmodules/app/Constants';
-import { getFormStrings } from '../../hsmodules/app/Utils';
-import { DictionaryOf } from '../../types.d';
+import { UserContext } from '../../../context';
+import client from '../../../feather';
+import { DictionaryOf } from '../../../types';
+import { Views } from '../Constants';
+import { getFormStrings } from '../Utils';
 
 interface Repository<T> {
   list: T[];
@@ -50,11 +49,11 @@ const useRepository = <T>(
 
   const remove = (obj): Promise<T> => {
     return Service.remove(obj._id ? obj._id : obj)
-      .then((_) => {
+      .then(_ => {
         toast(`${modelName} deleted successfully`);
         onNavigate && onNavigate(Views.LIST)();
       })
-      .catch((err) => {
+      .catch(err => {
         toast(
           `'Error deleting ${modelName}, probable network issues or ' + ${err}'`
         );
@@ -78,7 +77,7 @@ const useRepository = <T>(
     return (
       Service &&
       Service.find(params)
-        .then((response) => {
+        .then(response => {
           console.debug(
             'received response of model ',
             modelName,
@@ -93,7 +92,7 @@ const useRepository = <T>(
           setGroupedList(response.groupedOrder);
           return response;
         })
-        .catch((error) => {
+        .catch(error => {
           console.error('received error of model ', modelName, ' with body ', {
             params: { ...params },
             error,
@@ -125,7 +124,7 @@ const useRepository = <T>(
     return result;
   };
 
-  const submit = (dataIn) => {
+  const submit = dataIn => {
     const data = dataIn.length ? dataIn : spreadSubData(dataIn);
     const values = getFormStrings(data._id);
     console.debug(
@@ -136,17 +135,17 @@ const useRepository = <T>(
       data.facility = user.currentEmployee.facilityDetail._id;
     }
     return (data._id ? Service.update(data._id, data) : Service.create(data))
-      .then((data) => {
+      .then(data => {
         toast(`${modelName.toUpperCase()} ${values.message}`);
         onNavigate && onNavigate(Views.LIST)();
         return data;
       })
-      .catch((err) => {
+      .catch(err => {
         toast.error(`Error occurred : ${err}`);
       });
   };
 
-  const get = (id) => {
+  const get = id => {
     return Service.get(id);
   };
 

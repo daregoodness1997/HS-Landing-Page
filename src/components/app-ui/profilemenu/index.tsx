@@ -4,8 +4,8 @@ import Grow from '@mui/material/Grow';
 import Popper from '@mui/material/Popper';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Models } from '../Constants';
 
-import { Models } from '../../hsmodules/app/Constants';
 import useRepository from '../hooks/repository';
 import { Avatar } from '../topmenu/styles';
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
 
-import EmptyData from '../empty';
 import { customStyles } from './styles';
 
 interface Props {
@@ -19,12 +18,12 @@ interface Props {
   noHeader?: boolean;
   conditionalRowStyles?: [];
   selectableRowsComponent?: any;
-  CustomEmptyData?: React.ReactNode | "";
+  CustomEmptyData?: React.ReactNode | '';
 }
 
 const CustomLoader = () => (
   <div style={{ padding: '24px' }}>
-    <img src="/loading.gif" width={400} />
+    <img src='/loading.gif' width={400} />
   </div>
 );
 
@@ -48,7 +47,7 @@ const CustomTable: React.FC<Props> = ({
   return (
     <DataTable
       title={title}
-      columns={columns.filter((obj) => obj.selector && obj.inputType)}
+      columns={columns.filter(obj => obj.selector && obj.inputType)}
       data={data.map((obj, i) => ({ ...obj, sn: i + 1 }))} //TODO: only add sn if it's in the schema, to improve performance here
       pointerOnHover={pointerOnHover}
       highlightOnHover={highlightOnHover}
@@ -59,7 +58,7 @@ const CustomTable: React.FC<Props> = ({
       selectableRows={selectable}
       selectableRowsComponent={selectableRowsComponent}
       onSelectedRowsChange={onSelectedRowsChange}
-      fixedHeaderScrollHeight="100%"
+      fixedHeaderScrollHeight='100%'
       responsive
       dense={dense}
       style={{
@@ -67,7 +66,6 @@ const CustomTable: React.FC<Props> = ({
       }}
       progressComponent={<CustomLoader />}
       progressPending={progressPending}
-      noDataComponent={CustomEmptyData ? CustomEmptyData : <EmptyData />}
       conditionalRowStyles={conditionalRowStyles}
       noHeader={noHeader}
     />

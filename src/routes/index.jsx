@@ -17,7 +17,7 @@ const AppRoutes = () => {
         <Route path='/nct' element={<NCTRegister />} />
         <Route path='/login' element={<Login />} />
         <Route path='/app' element={<PrivateOutlet />}>
-          <Routes index element={<Overview />} />
+          <Route index element={<Overview />} />
         </Route>
       </Routes>
     </Router>

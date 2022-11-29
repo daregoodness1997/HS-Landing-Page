@@ -6,7 +6,6 @@ import Breadcrumbs from '../breadcrumb';
 import { Models } from '../Constants';
 import useRepository from '../hooks/repository';
 import LocationModal from '../inputs/LocationModal';
-import LocationSelect from '../inputs/LocationSelect';
 import ProfileMenu from '../profilemenu';
 import { Profile, TopMenuWrapper } from './styles';
 //import { avatar } from '../../assets/images/img_avatar.png';

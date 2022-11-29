@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { userDetails } from '../hsmodules/dashBoardUiComponent/utils/fetchUserDetails';
+import { userDetails } from './utils/fetchUserDetails';
 
 const EmptyPage = () => {
   const [userName, setUserName] = useState('');
