@@ -5,9 +5,6 @@ import { ObjectContext } from '../../context';
 import Dashboard from '../../components/app-ui/Dashboard/Dashboard';
 
 const PrivateOutlet = () => {
-  // const { user: data } = useContext(UserContext);
-  const { state, setState } = useContext(ObjectContext);
-
   // const {longitude, latitude} = getUserLocation();
 
   const data = localStorage.getItem('user') || '';

@@ -1,14 +1,18 @@
-import {Link as LinkRef} from "react-router-dom";
-import styled from "styled-components";
+import { Link as LinkRef } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const Lists = styled.ul`
   padding: 0;
   margin: 0;
+  color: white !important;
 
+  a {
+    color: white !important;
+  }
   &.sub-menu {
     color: #333;
     margin-left: 20px;
-    border-left: 1px dashed ${({theme}) => theme.btnText};
+    border-left: 1px dashed ${({ theme }) => theme.btnText};
     box-sizing: border-box;
     padding-left: 30px;
     height: 0;
@@ -28,17 +32,16 @@ export const ListItem = styled.li`
 
 export const MenuList = styled.div`
   &.menu-item {
-    color: ${({theme}) => theme.btnText};
+    color: white;
     text-decoration: none;
     font-size: 15px !important;
-    color: red;
     display: block;
     font-weight: 600;
     cursor: pointer;
     padding: 0.5rem;
   }
   &.menu-item.active {
-    background: ${({theme}) => theme.primary};
+    background: ${({ theme }) => theme.primary};
     border-radius: 5px;
     color: #fff;
   }
@@ -63,7 +66,7 @@ export const MenuList = styled.div`
 
 export const Link = styled(LinkRef)`
   &.menu-item {
-    color: ${({theme}) => theme.btnText};
+    color: white;
     text-decoration: none;
     font-size: 15px;
     display: block;
@@ -72,7 +75,7 @@ export const Link = styled(LinkRef)`
     padding: 0.8rem;
   }
   &.menu-item.active {
-    background: ${({theme}) => theme.primary};
+    background: ${({ theme }) => theme.primary};
     border-radius: 5px;
     color: #fff;
   }

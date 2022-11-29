@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Sidemenu = styled.div`
 &.hide{
@@ -19,8 +19,8 @@ export const Sidemenu = styled.div`
   top:0;
   bottom:0;
   left:0;
-  background: ${({theme}) => theme.primary};
-  color: ${({theme}) => theme.btnText};
+  background: blue;
+  color: white;
   width: 300px;
   height: 100vh;
   box-sizing: border-box;
@@ -46,13 +46,13 @@ export const TopSection = styled.div`
   align-items: center;
   justify-content: space-between;
   & h1 {
-    color: ${({theme}) => theme.btnText};
+    color: ${({ theme }) => theme.btnText};
     font-size: 20px;
   }
 `;
 
 export const TogglemenuBtn = styled.div`
-  color: ${({theme}) => theme.btnText};
+  color: ${({ theme }) => theme.btnText};
   font-size: 20px;
   position: absolute;
   top: 50%;
@@ -79,7 +79,7 @@ export const MainMenu = styled.div`
   }
 
   &.main-menu::-webkit-scrollbar-track {
-    background: ${({theme}) => theme.primary};
+    background: ${({ theme }) => theme.primary};
   }
 
   &.main-menu::-webkit-scrollbar-thumb {
@@ -92,7 +92,7 @@ export const MainMenu = styled.div`
   }
 
   &.main-menu .menu-item {
-    color: ${({theme}) => theme.btnText};
+    color: ${({ theme }) => theme.btnText};
     text-decoration: none;
     font-size: 15px;
     display: block;
@@ -100,7 +100,7 @@ export const MainMenu = styled.div`
     cursor: pointer;
   }
   &.main-menu .menu-item.active {
-    background: ${({theme}) => theme.blueTwo};
+    background: ${({ theme }) => theme.blueTwo};
     border-radius: 5px;
     color: #fff;
   }

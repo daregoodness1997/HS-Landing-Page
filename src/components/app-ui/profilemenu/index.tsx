@@ -4,13 +4,12 @@ import Grow from '@mui/material/Grow';
 import Popper from '@mui/material/Popper';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Models } from '../Constants';
 
-import useRepository from '../hooks/repository';
 import { Avatar } from '../topmenu/styles';
 
 const ProfileMenu = () => {
-  const { user } = useRepository(Models.EMPLOYEE);
+  const data = localStorage.getItem('user') || '';
+  const user = JSON.parse(data);
   const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);

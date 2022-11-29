@@ -7,7 +7,7 @@ export const PageWrapper = styled.div`
 `;
 
 export const AuthContainer = styled.div`
-  width: 65%;
+  width: 100%;
   height: 100vh;
   padding-top: 12%;
   padding-bottom: 4%;

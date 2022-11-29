@@ -12,7 +12,6 @@ const AuthWrapper = ({ paragraph, children }) => {
   });
   return (
     <PageWrapper>
-      <Side />
       <AuthContainer className='auth-container'>
         <div className='aside-container'>
           <img src='/public/Healthstack.png' alt='' />
