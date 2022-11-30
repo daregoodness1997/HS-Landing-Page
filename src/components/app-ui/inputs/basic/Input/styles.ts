@@ -8,7 +8,6 @@ export const InputField = styled.input`
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.grayTwo};
   width: 100%;
   &:hover {
     border: 1px solid #000000;
@@ -36,7 +35,7 @@ export const InputField = styled.input`
 export const InputBox = styled.div`
   position: relative;
 
-  height: 40px;
+  height: 48px;
   width: 100%;
 
   text-align: left;

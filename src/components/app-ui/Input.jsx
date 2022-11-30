@@ -33,7 +33,7 @@ const Input = ({
           {...register}
           onBlur={onBlur}
           autoComplete={autoComplete}
-          style={{ border: '1px solid #ddd', ...sx }}
+          style={{ background: '#f7f7f7', ...sx }}
         />
         <InputLabel className='form__label' htmlFor={name}>
           {label}

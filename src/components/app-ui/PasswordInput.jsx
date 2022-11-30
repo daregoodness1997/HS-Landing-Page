@@ -22,7 +22,7 @@ const PasswordInput = ({
           type={showPassword ? 'text' : 'password'}
           // placeholder='Password'
           name={name}
-          style={{ border: '1px solid #ddd' }}
+          style={{ background: '#f7f7f7' }}
           {...register}
         />
         <InputLabel className='form__label' htmlFor={label}>

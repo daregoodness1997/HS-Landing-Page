@@ -12,7 +12,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { Loader } from '../components';
 import AuthWrapper from '../components/app-ui/AuthWrapper';
 import Button from '../components/app-ui/Button';
-import Input from '../components/app-ui/Input';
+import Input from '../components/app-ui/inputs/basic/Input';
 import PasswordInput from '../components/app-ui/PasswordInput';
 import { UserContext } from '../context';
 import client from '../feather';
