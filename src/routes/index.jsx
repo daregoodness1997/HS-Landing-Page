@@ -5,6 +5,8 @@ import Home from '../pages/Home';
 import Login from '../pages/Login';
 import MNTResgister from '../pages/MNT';
 import NCTRegister from '../pages/NCT';
+import Overview from '../pages/Overview';
+import PrivateOutlet from '../pages/PrivateOutlet';
 
 const AppRoutes = () => {
   return (
@@ -14,7 +16,9 @@ const AppRoutes = () => {
         <Route path='/mnt' element={<MNTResgister />} />
         <Route path='/nct' element={<NCTRegister />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/app' element={<Layout />}></Route>
+        <Route path='/app' element={<PrivateOutlet />}>
+          <Route index element={<Overview />} />
+        </Route>
       </Routes>
     </Router>
   );

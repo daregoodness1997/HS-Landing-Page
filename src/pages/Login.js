@@ -12,7 +12,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { Loader } from '../components';
 import AuthWrapper from '../components/app-ui/AuthWrapper';
 import Button from '../components/app-ui/Button';
-import Input from '../components/app-ui/Input';
+import Input from '../components/app-ui/inputs/basic/Input';
 import PasswordInput from '../components/app-ui/PasswordInput';
 import { UserContext } from '../context';
 import client from '../feather';
@@ -108,6 +108,8 @@ function Login() {
                     background: 'transparent',
                     color: 'blue',
                     marginLeft: '0.6rem',
+                    marginBottom: '0.6rem',
+                    display: 'inline-block',
                   }}
                   to='/forgot-password'
                 >
@@ -121,35 +123,6 @@ function Login() {
                 loading={loading}
               />
             </form>
-
-            <div className='bottom-center'>
-              <p>or continue with</p>
-              <a href='#'>
-                <i className='bi bi-google' />
-              </a>
-              <a href=''>
-                <i className='bi bi-facebook' />
-              </a>
-              <a href=''>
-                <i className='bi bi-linkedin' />
-              </a>
-
-              <p>
-                Want to create organization?
-                <Link
-                  className='nav-link'
-                  style={{
-                    padding: '0',
-                    background: 'transparent',
-                    color: 'blue',
-                    marginLeft: '0.6rem',
-                  }}
-                  to='/signup'
-                >
-                  Click here
-                </Link>
-              </p>
-            </div>
           </AuthWrapper>
         </>
       )}
