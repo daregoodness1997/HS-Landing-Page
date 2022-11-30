@@ -9,8 +9,8 @@ const ModuleCard = () => {
           px: 6,
           py: 4,
           borderRadius: '6px',
-          background: '#f3f3f3',
-          transition0: 'all 0.5s ease-in-out',
+          background: '#fcfcfc',
+          transition: 'all 0.5s ease-in-out',
         },
         {
           '&:hover': {
@@ -19,7 +19,7 @@ const ModuleCard = () => {
         },
       ]}
     >
-      ModuleCard
+      Treatments
     </Box>
   );
 };
