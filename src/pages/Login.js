@@ -108,6 +108,8 @@ function Login() {
                     background: 'transparent',
                     color: 'blue',
                     marginLeft: '0.6rem',
+                    marginBottom: '0.6rem',
+                    display: 'inline-block',
                   }}
                   to='/forgot-password'
                 >
@@ -121,35 +123,6 @@ function Login() {
                 loading={loading}
               />
             </form>
-
-            <div className='bottom-center'>
-              <p>or continue with</p>
-              <a href='#'>
-                <i className='bi bi-google' />
-              </a>
-              <a href=''>
-                <i className='bi bi-facebook' />
-              </a>
-              <a href=''>
-                <i className='bi bi-linkedin' />
-              </a>
-
-              <p>
-                Want to create organization?
-                <Link
-                  className='nav-link'
-                  style={{
-                    padding: '0',
-                    background: 'transparent',
-                    color: 'blue',
-                    marginLeft: '0.6rem',
-                  }}
-                  to='/signup'
-                >
-                  Click here
-                </Link>
-              </p>
-            </div>
           </AuthWrapper>
         </>
       )}

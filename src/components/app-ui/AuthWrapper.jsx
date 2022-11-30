@@ -14,8 +14,7 @@ const AuthWrapper = ({ paragraph, children }) => {
     <PageWrapper>
       <AuthContainer className='auth-container'>
         <div className='aside-container'>
-          <img src='/public/Healthstack.png' alt='' />
-          <h2>Welcome to Healthstack</h2>
+          <h2>Welcome to ABCD</h2>
           <p>{paragraph}</p>
           <div className='aside-child'>{children}</div>
         </div>

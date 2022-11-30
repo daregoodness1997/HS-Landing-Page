@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const TopMenuWrapper = styled.div`
-  background: ${({theme}) => theme.grayThree};
+  background: ${({ theme }) => '#f7f7f7'};
   width: 100%;
   height: 60px;
   display: flex;

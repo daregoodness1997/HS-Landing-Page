@@ -25,21 +25,16 @@ export const menuItems = [
     ],
   },
   {
-    name: 'Clinic',
+    name: 'BCT',
     exact: true,
-    to: '/app/clinic',
+    to: '/app/bct',
     iconClassName: 'bi bi-file-medical',
-    subMenus: [
-      { name: 'Appointment', to: '/app/clinic/appointments' },
-      { name: 'checkin', to: '/app/clinic/checkin' },
-      { name: 'Dashboard', to: '/app/clinic/dashboard' },
-    ],
   },
 
   {
-    name: 'Appointments',
+    name: 'NMT',
     exact: true,
-    to: '/app/global-appointment',
+    to: '/app/nmt',
     iconClassName: 'bi bi-calendar',
   },
   {

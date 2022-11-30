@@ -29,8 +29,6 @@ const TopMenu = ({ isOpen, handleClick }) => {
         </span>
       </div>
 
-      <button>Hello World</button>
-
       <Profile>
         <div className='location-selector'></div>
 

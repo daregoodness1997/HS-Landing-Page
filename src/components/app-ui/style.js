@@ -126,7 +126,8 @@ export const InnerWrapper = styled.div`
 export const CustomButton = styled(BaseButton)`
   width: ${props => (props.fullwidth ? '100%' : 'auto')};
   color: ${props => (props.color ? props.color : '#FFF')};
-  background: ${props => (props.background ? props.background : '#0364FF')};
+  background: ${props =>
+    props.background ? props.background : 'rgb(37,99,235)'};
   max-height: 50px;
   display: flex;
   justify-content: center;
@@ -137,7 +138,7 @@ export const CustomButton = styled(BaseButton)`
   margin: 0 0.2rem;
   border: 0;
   font-size: 100%;
-  border-radius: 4px;
+  border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
   white-space: nowrap;

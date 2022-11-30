@@ -93,7 +93,7 @@ const ProfileMenu = () => {
                   id='composition-menu'
                   aria-labelledby='composition-button'
                   onKeyDown={handleListKeyDown}
-                  sx={{ textAlign: 'center' }}
+                  sx={{ textAlign: 'center', padding: '10px' }}
                 >
                   <Avatar
                     src='/img_avatar.png'

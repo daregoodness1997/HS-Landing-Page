@@ -19,7 +19,7 @@ export const Sidemenu = styled.div`
   top:0;
   bottom:0;
   left:0;
-  background: blue;
+  background: rgb(37,99,235);
   color: white;
   width: 300px;
   height: 100vh;
