@@ -8,8 +8,8 @@ interface ModalProps {
   open: boolean;
   onClose?: () => void;
   children?: React.ReactNode | undefined;
-  header?: 'string';
-  width?: 'string';
+  header?: string;
+  width?: string;
 }
 
 const ModalBox: React.FC<ModalProps> = ({
@@ -36,8 +36,8 @@ const ModalBox: React.FC<ModalProps> = ({
   return (
     <>
       <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
+        aria-labelledby='transition-modal-title'
+        aria-describedby='transition-modal-description'
         open={open}
         onClose={onClose}
         closeAfterTransition
@@ -93,7 +93,7 @@ const ModalBox: React.FC<ModalProps> = ({
               )}
               <Box
                 sx={{
-                  overflowY: 'scroll',
+                  overflowY: 'auto',
                   padding: '10px',
                 }}
               >
