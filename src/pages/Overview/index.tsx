@@ -4,6 +4,7 @@ import Button from '../../components/app-ui/Button';
 import ModuleCard from '../../components/app-ui/card/ModuleCard';
 import Input from '../../components/app-ui/inputs/basic/Input';
 import CustomSelect from '../../components/app-ui/inputs/basic/Select';
+import Select from '../../components/app-ui/inputs/basic/Select/Select';
 import Textarea from '../../components/app-ui/inputs/basic/Textarea';
 import ModalBox from '../../components/app-ui/modal';
 import { BottomWrapper } from '../../components/app-ui/styles';
@@ -26,8 +27,8 @@ const Overview = () => {
       <ModalBox open={open} onClose={submit} header='Treatment' width='40%'>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <Input label='Name' />
-          <CustomSelect label='Diagnostics' options={[]} />
-          <CustomSelect label='Peninclin' options={[]} />
+          <Select label='Diagnostics' options={[]} />
+          <Select label='Peninclin' options={[]} />
           <Textarea label='Medication' />
           <BottomWrapper>
             <button>Clear</button>
