@@ -1,5 +1,6 @@
 import { Box, Typography, Grid } from '@mui/material';
 import React, { useState } from 'react';
+import AppButton from '../../components/app-ui/app-button';
 import Button from '../../components/app-ui/Button';
 import ModuleCard from '../../components/app-ui/card/ModuleCard';
 import Input from '../../components/app-ui/inputs/basic/Input';
@@ -32,7 +33,7 @@ const Overview = () => {
           <Textarea label='Medication' />
           <BottomWrapper>
             <button>Clear</button>
-            <button>Save</button>
+            <AppButton label='Save' />
           </BottomWrapper>
         </Box>
       </ModalBox>
