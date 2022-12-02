@@ -59,7 +59,7 @@ const Input: React.FC<InputProps> = ({
         {...register}
         onBlur={onBlur}
         autoComplete={autoComplete}
-        style={{ background: '#f7f7f7', ...sx }}
+        style={{ background: '#f7f7f7', border: '1px solid #eee', ...sx }}
       />
       <InputLabel className='form__label' htmlFor={name}>
         {label}

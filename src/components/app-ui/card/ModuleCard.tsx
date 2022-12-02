@@ -1,16 +1,24 @@
 import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 
-const ModuleCard = () => {
+interface Props {
+  label: string;
+  onClick: (e?: any) => void;
+}
+
+const ModuleCard: React.FC<Props> = ({ label, onClick }) => {
   return (
     <Box
+      onClick={onClick}
       sx={[
         {
           px: 6,
           py: 4,
           borderRadius: '6px',
-          background: '#fcfcfc',
+          background: '#f2f2f2',
           transition: 'all 0.5s ease-in-out',
+          cursor: 'pointer',
+          border: '1px solid #eee',
         },
         {
           '&:hover': {
@@ -19,7 +27,7 @@ const ModuleCard = () => {
         },
       ]}
     >
-      Treatments
+      <Typography>{label}</Typography>
     </Box>
   );
 };
