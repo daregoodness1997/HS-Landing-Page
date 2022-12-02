@@ -13,7 +13,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
 
 interface MedicationsProps {
-  peninclin: boolean;
+  peninclin?: boolean;
   data: any[];
 }
 
@@ -22,7 +22,7 @@ const Overview = () => {
   const user = JSON.parse(data);
   const [open, setOpen] = useState(false);
   const [medications, setMedications] = useState<MedicationsProps[]>([
-    { peninclin: false, data: [''] },
+    { data: [''] },
   ]);
   const { handleSubmit, control, register, watch } = useForm();
 
@@ -89,29 +89,31 @@ const Overview = () => {
     let medic = getMedication();
 
     setMedications(medic);
-  }, [setMedications, diagnostics]);
+  }, [setMedications, diagnostics, hasPenicilin, medicationData]);
 
   console.log('medic', medications);
 
   const renderMedications = () => {
     if (medications !== undefined)
       return (
-        <ul>
-          {medications.map(medication => (
-            <li>{medication?.data}</li>
-          ))}
-        </ul>
+        <div className='editable' contentEditable='true'>
+          <ul>
+            {medications.map(medication => (
+              <div style={{ display: 'block', margin: '6px', padding: '4px' }}>
+                {medication?.data}
+              </div>
+            ))}
+          </ul>
+        </div>
       );
     return;
   };
 
-  console.log('Medications', medications);
-
   return (
     <>
       <ModalBox open={open} onClose={submit} header='Treatment' width='40%'>
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <form>
+        <form>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <Input label='Name' register={register('name')} />
             <Select
               label='Diagnostics'
@@ -123,16 +125,15 @@ const Overview = () => {
               options={peninclinOptions}
               register={register('peninclin')}
             />
-            <div className='editable' contentEditable='true'>
-              {renderMedications()}
-            </div>
-            <Textarea label='Medication' />
+
+            {renderMedications()}
+            {/* <Textarea label='Medication' /> */}
             <BottomWrapper>
               <button>Clear</button>
               <AppButton label='Save' />
             </BottomWrapper>
-          </form>
-        </Box>
+          </Box>
+        </form>
       </ModalBox>
       <Box sx={{ p: 4 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: 2 }}>
