@@ -12,11 +12,18 @@ import { BottomWrapper } from '../../components/app-ui/styles';
 import { toast, ToastContainer } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
 
+interface MedicationsProps {
+  peninclin: boolean;
+  data: any[];
+}
+
 const Overview = () => {
   const data = localStorage.getItem('user') || '';
   const user = JSON.parse(data);
   const [open, setOpen] = useState(false);
-  const [medications, setMedications] = useState([]);
+  const [medications, setMedications] = useState<MedicationsProps[]>([
+    { peninclin: false, data: [''] },
+  ]);
   const { handleSubmit, control, register, watch } = useForm();
 
   const handleTreatment = () => {
@@ -79,24 +86,23 @@ const Overview = () => {
 
       return medicPeninclin;
     };
-    let medic = getMedication()[0].data;
+    let medic = getMedication();
 
     setMedications(medic);
-  }, [setMedications, hasPenicilin, diagnostics]);
+  }, [setMedications, diagnostics]);
 
   console.log('medic', medications);
 
   const renderMedications = () => {
-    if (medications[0].length > 0)
+    if (medications !== undefined)
       return (
         <ul>
           {medications.map(medication => (
-            <li>{medication}</li>
+            <li>{medication?.data}</li>
           ))}
         </ul>
       );
-
-    return <></>;
+    return;
   };
 
   console.log('Medications', medications);
