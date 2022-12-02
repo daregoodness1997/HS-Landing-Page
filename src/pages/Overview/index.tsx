@@ -292,27 +292,24 @@ const Overview = () => {
             {user.firstname} {user.lastname} 👋
           </Typography>
         </Box>
-        <Box sx={{ px: '16%', width: '100%', pt: 6 }}>
+        <Box sx={{ px: { lg: '16%', xs: '8%' }, width: '100%', pt: 6 }}>
           <Input placeholder='Search here' />
         </Box>
         <Grid
           container
           spacing={{ xs: 4, md: 6 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
-          sx={{ width: '100%', px: '10%', pt: 6 }}
+          sx={{ width: '100%', px: { lg: '10%', xs: 0 }, pt: 6 }}
         >
           <Grid item xs={2} sm={4} md={4}>
             <ModuleCard label='Treatment' onClick={() => handleTreatment()} />
           </Grid>
           <Grid item xs={2} sm={4} md={4}>
-            <ModuleCard
-              label='Narrow Complex Tachycardia (NCT)'
-              onClick={() => setOpenNCT(true)}
-            />
+            <ModuleCard label='NCT' onClick={() => setOpenNCT(true)} />
           </Grid>
           <Grid item xs={2} sm={4} md={4}>
             <ModuleCard
-              label='              Management of Narrow Complex Tachycardia (NCT)
+              label='MNT
 '
               onClick={() => setOpenMNT(true)}
             />
