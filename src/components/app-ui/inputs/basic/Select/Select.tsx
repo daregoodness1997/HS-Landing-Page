@@ -9,11 +9,11 @@ import React from 'react';
 import { InputBox, InputLabel } from '../Input/styles';
 
 interface CustomSelectProps {
-  value?: string;
+  value?: any;
   name?: string;
   label?: string;
   placeholder?: string;
-  handleChange?: () => void;
+  handleChange?: (e?: any) => void;
   options: { label: string; value: any }[];
   style?: any;
   register?: any;

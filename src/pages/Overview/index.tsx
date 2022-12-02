@@ -11,6 +11,9 @@ import ModalBox from '../../components/app-ui/modal';
 import { BottomWrapper } from '../../components/app-ui/styles';
 import { toast, ToastContainer } from 'react-toastify';
 import { Controller, useForm } from 'react-hook-form';
+import Modal from '../../components/Modal';
+import BoxModal from '../../components/app-ui/modal/BoxModal';
+import { posts } from '../MNT';
 
 interface MedicationsProps {
   peninclin?: boolean;
@@ -21,13 +24,25 @@ const Overview = () => {
   const data = localStorage.getItem('user') || '';
   const user = JSON.parse(data);
   const [open, setOpen] = useState(false);
+  const [openNCT, setOpenNCT] = useState(false);
+  const [openMNT, setOpenMNT] = useState(false);
+  const [openNCTC, setOpenNCTC] = useState(false);
+  const [pen, setPen] = useState(false);
+  const [diag, setDiag] = useState('');
   const [medications, setMedications] = useState<MedicationsProps[]>([
     { data: [''] },
   ]);
-  const { handleSubmit, control, register, watch } = useForm();
+  const { handleSubmit, control, register, watch, setValue } = useForm();
 
   const handleTreatment = () => {
     setOpen(true);
+  };
+
+  const handleNCTClose = () => {
+    setOpenNCT(false);
+  };
+  const handleMNTClose = () => {
+    setOpenNCT(false);
   };
 
   const submit = () => {
@@ -74,14 +89,16 @@ const Overview = () => {
   const diagnostics = watch('diagnostics');
   const hasPenicilin = watch('peninclin');
 
+  console.log('Pen', pen);
+
   useEffect(() => {
     const getMedication = () => {
       const medications = medicationData.filter(
-        medication => medication.id === diagnostics
+        medication => medication.id === diag
       );
 
       const medicPeninclin = medications[0]?.medications.filter(
-        medication => medication.peninclin === Boolean(hasPenicilin)
+        medication => medication.peninclin === Boolean(pen)
       );
 
       return medicPeninclin;
@@ -89,19 +106,42 @@ const Overview = () => {
     let medic = getMedication();
 
     setMedications(medic);
-  }, [setMedications, diagnostics, hasPenicilin, medicationData]);
+  }, [pen, diag]);
 
-  console.log('medic', medications);
+  const hanlePeninclin = pen => {
+    const medications = medicationData.filter(
+      medication => medication.id === diagnostics
+    );
+
+    const medicPeninclin = medications[0]?.medications.filter(
+      medication => medication.peninclin === Boolean(pen)
+    );
+
+    setMedications(medicPeninclin);
+  };
 
   const renderMedications = () => {
     if (medications !== undefined)
       return (
-        <div className='editable' contentEditable='true'>
+        <div
+          // className='editable'
+          // contentEditable='true'
+          style={{
+            height: 'auto',
+            padding: '.9rem',
+            width: '100%',
+            background: '#f7f7f7',
+            border: '1px solid #eee',
+          }}
+        >
           <ul>
-            {medications.map(medication => (
-              <div style={{ display: 'block', margin: '6px', padding: '4px' }}>
+            {medications.map((medication, idx) => (
+              <li
+                style={{ display: 'block', margin: '6px', padding: '4px' }}
+                key={idx}
+              >
                 {medication?.data}
-              </div>
+              </li>
             ))}
           </ul>
         </div>
@@ -111,19 +151,29 @@ const Overview = () => {
 
   return (
     <>
-      <ModalBox open={open} onClose={submit} header='Treatment' width='40%'>
-        <form>
+      <BoxModal open={open} onClose={submit} header='Treatment'>
+        <form onSubmit={handleSubmit(submit)}>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <Input label='Name' register={register('name')} />
             <Select
               label='Diagnostics'
               options={diagnosticOptions}
-              register={register('diagnostics')}
+              value={diag}
+              // register={register('diagnostics')}
+              handleChange={e => {
+                setValue('diagnostics', e.target.value);
+                setDiag(e.target.value);
+              }}
             />
             <Select
               label='Peninclin'
               options={peninclinOptions}
-              register={register('peninclin')}
+              // register={register('peninclin')}
+              value={pen}
+              handleChange={e => {
+                setValue('peninclin', e.target.value);
+                setPen(e.target.value);
+              }}
             />
 
             {renderMedications()}
@@ -134,7 +184,93 @@ const Overview = () => {
             </BottomWrapper>
           </Box>
         </form>
-      </ModalBox>
+      </BoxModal>
+      <BoxModal open={openNCT} onClose={handleNCTClose} header='NCT'>
+        <Modal
+          open={openNCTC}
+          setOpen={setOpenNCTC}
+          title='BP Chest Paain'
+          paragraph='Hearth Failure, HR>/200/min'
+          children=''
+        />
+        <div>
+          <div className='h-full '>
+            <div>
+              <h2 className='text-2xl font-extrabold tracking-tight text-white sm:text-3xl text-center my-2'>
+                Narrow Complex Tachycardia (NCT)
+              </h2>
+              <div className='bg-white   sm:p-4  boxShadow-lg rounded-md flex  flex-col items-center justify-center inside'>
+                <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12  px-8 '>
+                  <div>
+                    <h2 className='text-xl leading-6 font-bold text-gray-900'>
+                      Irregular Rhythm
+                    </h2>
+                  </div>
+                  <div>
+                    <ul>
+                      <li>BP</li>
+                      <li>Chest Pain</li>
+                      <li>Hearth Failure </li>
+                      <li>{`HR>/200/min`}</li>
+                    </ul>
+                  </div>
+                </div>
+                <button
+                  type='button'
+                  onClick={() => setOpenNCTC(true)}
+                  className='inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm mb-12'
+                >
+                  Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </BoxModal>
+
+      {/* <BoxModal open={openMNT} onClose={handleMNTClose} header='MNT'>
+        <Modal
+          open={openNCTC}
+          setOpen={setOpenNCTC}
+          title='BP Chest Paain'
+          paragraph='Hearth Failure, HR>/200/min'
+          children=''
+        />
+        <div>
+          <div className='h-full '>
+            <div>
+              <h2 className='text-2xl font-extrabold tracking-tight text-white sm:text-3xl text-center my-2'>
+                Management of Narrow Complex Tachycardia (NCT)
+              </h2>
+              <div className='bg-white  mt-6 sm:p-4  boxShadow-lg rounded-md flex  flex-col items-center justify-center inside'>
+                <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12 '>
+                  {posts.map(post => (
+                    <div
+                      key={post.title}
+                      className='flex flex-col items-center justify-center'
+                    >
+                      <img className='' src={post.image} alt={post.title} />
+                      <a href={post.href} className='block mt-4'>
+                        <p className='text-xl font-semibold text-gray-900'>
+                          {post.title}
+                        </p>
+                      </a>
+                    </div>
+                  ))}
+                </div>
+                <button
+                  type='button'
+                  onClick={() => setOpenNCTC(true)}
+                  className='inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm mb-12'
+                >
+                  Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </BoxModal> */}
+
       <Box sx={{ p: 4 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: 2 }}>
           <Typography
@@ -170,8 +306,15 @@ const Overview = () => {
           </Grid>
           <Grid item xs={2} sm={4} md={4}>
             <ModuleCard
-              label='Broad Complex Taclycardia'
-              onClick={() => handleTreatment()}
+              label='Narrow Complex Tachycardia (NCT)'
+              onClick={() => setOpenNCT(true)}
+            />
+          </Grid>
+          <Grid item xs={2} sm={4} md={4}>
+            <ModuleCard
+              label='              Management of Narrow Complex Tachycardia (NCT)
+'
+              onClick={() => setOpenMNT(true)}
             />
           </Grid>
         </Grid>

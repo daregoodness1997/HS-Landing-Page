@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from '../components/Modal';
-const posts = [
+export const posts = [
   {
     title: 'Airway Patency',
     image: 'assets/airway.png',
