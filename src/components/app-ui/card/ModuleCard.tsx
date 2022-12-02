@@ -15,7 +15,7 @@ const ModuleCard: React.FC<Props> = ({ label, onClick }) => {
           px: 6,
           py: 4,
           borderRadius: '6px',
-          background: '#fcfcfc',
+          background: '#f2f2f2',
           transition: 'all 0.5s ease-in-out',
           cursor: 'pointer',
           border: '1px solid #eee',

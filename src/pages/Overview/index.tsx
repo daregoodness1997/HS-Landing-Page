@@ -1,5 +1,5 @@
 import { Box, Typography, Grid } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AppButton from '../../components/app-ui/app-button';
 import Button from '../../components/app-ui/Button';
 import ModuleCard from '../../components/app-ui/card/ModuleCard';
@@ -9,11 +9,15 @@ import Select from '../../components/app-ui/inputs/basic/Select/Select';
 import Textarea from '../../components/app-ui/inputs/basic/Textarea';
 import ModalBox from '../../components/app-ui/modal';
 import { BottomWrapper } from '../../components/app-ui/styles';
+import { toast, ToastContainer } from 'react-toastify';
+import { Controller, useForm } from 'react-hook-form';
 
 const Overview = () => {
   const data = localStorage.getItem('user') || '';
   const user = JSON.parse(data);
   const [open, setOpen] = useState(false);
+  const [medications, setMedications] = useState([]);
+  const { handleSubmit, control, register, watch } = useForm();
 
   const handleTreatment = () => {
     setOpen(true);
@@ -23,18 +27,105 @@ const Overview = () => {
     setOpen(false);
   };
 
+  const medicationData = [
+    {
+      id: '1',
+      name: 'Rheumatic Fever',
+      medications: [
+        { peninclin: true, data: ['Phenoxymethylpenicillin'] },
+        { peninclin: false, data: ['Sulfadiazine'] },
+      ],
+    },
+    {
+      id: '2',
+      name: 'Streptococcal Infection',
+      medications: [
+        { peninclin: true, data: ['Phenoxymethylpenicillin'] },
+        { peninclin: false, data: ['Erythromycin', 'Azithromycin'] },
+      ],
+    },
+    {
+      id: '3',
+      name: 'Meningitis',
+      medications: [
+        { peninclin: true, data: ['Ciprofloxacin'] },
+        { peninclin: false, data: ['Rifampicin', 'Ceftriazone'] },
+      ],
+    },
+  ];
+
+  const diagnosticOptions = medicationData.map(data => ({
+    label: data.name,
+    value: data.id,
+  }));
+
+  const peninclinOptions = [
+    { label: 'Yes', value: true },
+    { label: 'No', value: false },
+  ];
+
+  const diagnostics = watch('diagnostics');
+  const hasPenicilin = watch('peninclin');
+
+  useEffect(() => {
+    const getMedication = () => {
+      const medications = medicationData.filter(
+        medication => medication.id === diagnostics
+      );
+
+      const medicPeninclin = medications[0]?.medications.filter(
+        medication => medication.peninclin === Boolean(hasPenicilin)
+      );
+
+      return medicPeninclin;
+    };
+    let medic = getMedication()[0].data;
+
+    setMedications(medic);
+  }, [setMedications, hasPenicilin, diagnostics]);
+
+  console.log('medic', medications);
+
+  const renderMedications = () => {
+    if (medications[0].length > 0)
+      return (
+        <ul>
+          {medications.map(medication => (
+            <li>{medication}</li>
+          ))}
+        </ul>
+      );
+
+    return <></>;
+  };
+
+  console.log('Medications', medications);
+
   return (
     <>
       <ModalBox open={open} onClose={submit} header='Treatment' width='40%'>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <Input label='Name' />
-          <Select label='Diagnostics' options={[]} />
-          <Select label='Peninclin' options={[]} />
-          <Textarea label='Medication' />
-          <BottomWrapper>
-            <button>Clear</button>
-            <AppButton label='Save' />
-          </BottomWrapper>
+          <form>
+            <Input label='Name' register={register('name')} />
+            <Select
+              label='Diagnostics'
+              options={diagnosticOptions}
+              register={register('diagnostics')}
+            />
+            <Select
+              label='Peninclin'
+              options={peninclinOptions}
+              register={register('peninclin')}
+            />
+            <div className='editable' contentEditable='true'>
+              {renderMedications()}
+            </div>
+            <Textarea label='Medication' />
+            <BottomWrapper>
+              <button>Clear</button>
+              <AppButton label='Save' />
+            </BottomWrapper>
+          </form>
         </Box>
       </ModalBox>
       <Box sx={{ p: 4 }}>

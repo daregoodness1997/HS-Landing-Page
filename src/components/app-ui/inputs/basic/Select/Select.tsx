@@ -14,7 +14,7 @@ interface CustomSelectProps {
   label?: string;
   placeholder?: string;
   handleChange?: () => void;
-  options: { label: string; value: string }[];
+  options: { label: string; value: any }[];
   style?: any;
   register?: any;
   error?: any;
