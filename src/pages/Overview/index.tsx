@@ -293,7 +293,10 @@ const Overview = () => {
           </Typography>
         </Box>
         <Box sx={{ px: { lg: '16%', xs: '8%' }, width: '100%', pt: 6 }}>
-          <Input placeholder='Search here' />
+          <Input
+            placeholder='Search here'
+            sx={{ backgroundColor: '#EDF5FF', border: '1px solid #bbdaff' }}
+          />
         </Box>
         <Grid
           container

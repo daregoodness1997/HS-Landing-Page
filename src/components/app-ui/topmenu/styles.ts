@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const TopMenuWrapper = styled.div`
-  background: ${({ theme }) => '#f7f7f7'};
+  background: ${({ theme }) => '#EDF5FF'};
   width: 100%;
   height: 60px;
   display: flex;

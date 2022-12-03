@@ -15,10 +15,10 @@ const ModuleCard: React.FC<Props> = ({ label, onClick }) => {
           px: { lg: 6, xs: 2 },
           py: { lg: 4, xs: 2 },
           borderRadius: '6px',
-          background: '#f2f2f2',
+          background: '#cce3ff',
           transition: 'all 0.5s ease-in-out',
           cursor: 'pointer',
-          border: '1px solid #eee',
+          border: '1px solid #7195c2',
         },
         {
           '&:hover': {
