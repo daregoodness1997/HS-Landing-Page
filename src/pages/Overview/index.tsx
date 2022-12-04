@@ -7,6 +7,7 @@ import Modal from '../../components/Modal';
 import BoxModal from '../../components/app-ui/modal/BoxModal';
 import TreatmentView from '../views/TreatmentView';
 import NCTView from '../views/NCTView';
+import MNTView from '../views/MNTView';
 
 // interface MedicationsProps {
 //   peninclin?: boolean;
@@ -36,13 +37,17 @@ const Overview = () => {
     setOpenNCT(false);
   };
 
+  const renderContext = () => {
+    if (content === 'Treatment') return <TreatmentView />;
+    if (content === 'NCT') return <NCTView />;
+    if (content === 'MNT') return <MNTView />;
+    return;
+  };
+
   return (
     <>
       <BoxModal open={open} onClose={handleClose} header={content}>
-        <TreatmentView />
-      </BoxModal>
-      <BoxModal open={openNCT} onClose={handleNCTClose} header='NCT'>
-        <NCTView />
+        {renderContext()}
       </BoxModal>
 
       <Box sx={{ p: 4 }}>
@@ -88,13 +93,22 @@ const Overview = () => {
             />
           </Grid>
           <Grid item xs={2} sm={4} md={4}>
-            <ModuleCard label='NCT' onClick={() => setOpenNCT(true)} />
+            <ModuleCard
+              label='NCT'
+              onClick={() => {
+                handleOpen();
+                setContent('NCT');
+              }}
+            />
           </Grid>
           <Grid item xs={2} sm={4} md={4}>
             <ModuleCard
               label='MNT
 '
-              onClick={() => setOpenMNT(true)}
+              onClick={() => {
+                handleOpen();
+                setContent('MNT');
+              }}
             />
           </Grid>
         </Grid>
