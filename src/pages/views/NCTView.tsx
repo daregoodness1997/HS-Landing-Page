@@ -6,7 +6,7 @@ const NCTView = () => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
-    setOpen(false);
+    setOpen(true);
   };
   return (
     <Box>
