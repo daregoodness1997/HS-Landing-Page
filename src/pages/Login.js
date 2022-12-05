@@ -55,6 +55,7 @@ function Login() {
       })
       .catch(err => {
         toast.error(`Error loggin in User, probable network issues  ${err}`);
+        setLoading(false);
       });
   };
 
