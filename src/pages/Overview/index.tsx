@@ -8,6 +8,7 @@ import BoxModal from '../../components/app-ui/modal/BoxModal';
 import TreatmentView from '../views/TreatmentView';
 import NCTView from '../views/NCTView';
 import MNTView from '../views/MNTView';
+import WardView from '../views/WardView';
 
 // interface MedicationsProps {
 //   peninclin?: boolean;
@@ -41,6 +42,7 @@ const Overview = () => {
     if (content === 'Treatment') return <TreatmentView />;
     if (content === 'NCT') return <NCTView />;
     if (content === 'MNT') return <MNTView />;
+    if (content === 'Ward') return <WardView />;
     return;
   };
 
@@ -108,6 +110,16 @@ const Overview = () => {
               onClick={() => {
                 handleOpen();
                 setContent('MNT');
+              }}
+            />
+          </Grid>
+          <Grid item xs={2} sm={4} md={4}>
+            <ModuleCard
+              label='Ward Routine Nurse
+'
+              onClick={() => {
+                handleOpen();
+                setContent('Ward');
               }}
             />
           </Grid>
