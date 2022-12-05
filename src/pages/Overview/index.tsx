@@ -9,6 +9,7 @@ import TreatmentView from '../views/TreatmentView';
 import NCTView from '../views/NCTView';
 import MNTView from '../views/MNTView';
 import WardView from '../views/WardView';
+import BCTView from '../views/BCTView';
 
 // interface MedicationsProps {
 //   peninclin?: boolean;
@@ -43,6 +44,7 @@ const Overview = () => {
     if (content === 'NCT') return <NCTView />;
     if (content === 'MNT') return <MNTView />;
     if (content === 'Ward') return <WardView />;
+    if (content === 'Management of BCT') return <BCTView />;
     return;
   };
 
@@ -120,6 +122,16 @@ const Overview = () => {
               onClick={() => {
                 handleOpen();
                 setContent('Ward');
+              }}
+            />
+          </Grid>
+          <Grid item xs={2} sm={4} md={4}>
+            <ModuleCard
+              label='Management of BCT
+'
+              onClick={() => {
+                handleOpen();
+                setContent('Management of BCT');
               }}
             />
           </Grid>
