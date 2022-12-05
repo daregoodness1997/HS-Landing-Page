@@ -4,6 +4,7 @@ import Modal from '../../components/Modal';
 
 const NCTView = () => {
   const [open, setOpen] = useState(false);
+  const [step, setStep] = useState(0);
 
   const handleOpen = () => {
     setOpen(true);
