@@ -87,7 +87,7 @@ const Overview = () => {
           columns={{ xs: 4, sm: 8, md: 12 }}
           sx={{ width: '100%', px: { lg: '10%', xs: 0 }, pt: 6 }}
         >
-          <Grid item xs={2} sm={4} md={4}>
+          <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
               label='Treatment'
               onClick={() => {
@@ -96,7 +96,7 @@ const Overview = () => {
               }}
             />
           </Grid>
-          <Grid item xs={2} sm={4} md={4}>
+          <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
               label='NCT'
               onClick={() => {
@@ -105,7 +105,7 @@ const Overview = () => {
               }}
             />
           </Grid>
-          <Grid item xs={2} sm={4} md={4}>
+          <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
               label='MNT
 '
@@ -115,7 +115,7 @@ const Overview = () => {
               }}
             />
           </Grid>
-          <Grid item xs={2} sm={4} md={4}>
+          <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
               label='Ward Routine Nurse
 '
@@ -125,7 +125,7 @@ const Overview = () => {
               }}
             />
           </Grid>
-          <Grid item xs={2} sm={4} md={4}>
+          <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
               label='Management of BCT
 '
