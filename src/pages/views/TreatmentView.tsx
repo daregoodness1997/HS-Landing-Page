@@ -13,9 +13,7 @@ interface Props {
 
 const TreatmentView: React.FC<Props> = ({ setOpen }) => {
   const [pen, setPen] = useState('');
-  const [step, setStep] = useState(0);
-  const [disease, setDisease] = useState('');
-  const [data, setData] = useState([]);
+
   const [diag, setDiag] = useState('');
   const [medications, setMedications] = useState([{ data: [''] }]);
   const { handleSubmit, control, register, watch, setValue } = useForm();
