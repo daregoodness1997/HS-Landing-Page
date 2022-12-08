@@ -8,7 +8,10 @@ import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 
 const TreatmentView = () => {
-  const [pen, setPen] = useState(false);
+  const [pen, setPen] = useState('');
+  const [step, setStep] = useState(0);
+  const [disease, setDisease] = useState('');
+  const [data, setData] = useState([]);
   const [diag, setDiag] = useState('');
   const [medications, setMedications] = useState([{ data: [''] }]);
   const { handleSubmit, control, register, watch, setValue } = useForm();
@@ -18,24 +21,24 @@ const TreatmentView = () => {
       id: '1',
       name: 'Rheumatic Fever',
       medications: [
-        { peninclin: true, data: ['Phenoxymethylpenicillin'] },
-        { peninclin: false, data: ['Sulfadiazine'] },
+        { peninclin: '1', data: ['Phenoxymethylpenicillin'] },
+        { peninclin: '0', data: ['Sulfadiazine'] },
       ],
     },
     {
       id: '2',
       name: 'Streptococcal Infection',
       medications: [
-        { peninclin: true, data: ['Phenoxymethylpenicillin'] },
-        { peninclin: false, data: ['Erythromycin', 'Azithromycin'] },
+        { peninclin: '1', data: ['Phenoxymethylpenicillin'] },
+        { peninclin: '0', data: ['Erythromycin', 'Azithromycin'] },
       ],
     },
     {
       id: '3',
       name: 'Meningitis',
       medications: [
-        { peninclin: true, data: ['Ciprofloxacin'] },
-        { peninclin: false, data: ['Rifampicin', 'Ceftriazone'] },
+        { peninclin: '1', data: ['Ciprofloxacin'] },
+        { peninclin: '0', data: ['Rifampicin', 'Ceftriazone'] },
       ],
     },
   ];
@@ -46,12 +49,10 @@ const TreatmentView = () => {
   }));
 
   const peninclinOptions = [
-    { label: 'Yes', value: true },
-    { label: 'No', value: false },
+    { label: 'Yes', value: '1' },
+    { label: 'No', value: '0' },
   ];
 
-  const diagnostics = watch('diagnostics');
-  const hasPenicilin = watch('peninclin');
   useEffect(() => {
     const getMedication = () => {
       const medications = medicationData.filter(
@@ -59,7 +60,7 @@ const TreatmentView = () => {
       );
 
       const medicPeninclin = medications[0]?.medications.filter(
-        medication => medication.peninclin === Boolean(pen)
+        medication => medication.peninclin === pen
       );
 
       return medicPeninclin;
@@ -79,6 +80,7 @@ const TreatmentView = () => {
             height: 'auto',
             padding: '.9rem',
             width: '100%',
+
             background: '#f7f7f7',
             border: '1px solid #eee',
           }}
