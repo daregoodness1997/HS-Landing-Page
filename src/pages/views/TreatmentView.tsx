@@ -7,7 +7,11 @@ import AppButton from '../../components/app-ui/app-button';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 
-const TreatmentView = () => {
+interface Props {
+  setOpen?: any;
+}
+
+const TreatmentView: React.FC<Props> = ({ setOpen }) => {
   const [pen, setPen] = useState('');
   const [step, setStep] = useState(0);
   const [disease, setDisease] = useState('');
@@ -100,8 +104,9 @@ const TreatmentView = () => {
     return;
   };
 
-  const submit = () => {};
-
+  const submit = () => {
+    setOpen(false);
+  };
   return (
     <form onSubmit={handleSubmit(submit)}>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -130,8 +135,8 @@ const TreatmentView = () => {
         {renderMedications()}
         {/* <Textarea label='Medication' /> */}
         <BottomWrapper>
-          <button>Clear</button>
-          <AppButton label='Save' />
+          <button onClick={() => setOpen(false)}>Clear</button>
+          <AppButton label='Save' type='submit' />
         </BottomWrapper>
       </Box>
     </form>
