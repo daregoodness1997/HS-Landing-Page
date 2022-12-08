@@ -40,7 +40,7 @@ const Overview = () => {
   };
 
   const renderContext = () => {
-    if (content === 'Treatment') return <TreatmentView />;
+    if (content === 'Treatment') return <TreatmentView setOpen={setOpen} />;
     if (content === 'NCT') return <NCTView />;
     if (content === 'MNT') return <MNTView />;
     if (content === 'Ward') return <WardView />;
