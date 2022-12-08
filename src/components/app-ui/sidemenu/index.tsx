@@ -63,7 +63,7 @@ function SideMenu({ isOpen }) {
   return (
     <Sidemenu className={`side-menu ${!isOpen ? '' : 'hide'}`}>
       <TopSection>
-        <h4>Our Hospital</h4>
+        <h4>ABCD</h4>
       </TopSection>
       <MainMenu className='main-menu'>
         <Lists>
