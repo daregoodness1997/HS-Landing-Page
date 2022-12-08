@@ -29,7 +29,7 @@ function Login() {
       top: 0,
       left: 0,
     });
-    document.title = 'Health Stack - Login';
+    document.title = 'ABCD - Login';
     setTimeout(() => setLoaderTimer(false), 1500);
   }, []);
 

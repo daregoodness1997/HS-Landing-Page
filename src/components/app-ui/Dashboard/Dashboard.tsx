@@ -15,7 +15,7 @@ const Dashboard: React.FC<DashProps> = ({ children }) => {
         top: 0,
         left: 0,
       });
-      document.title = 'Health Stack - Dashboard';
+      document.title = 'ABCDG - Dashboard';
     }, []);
 
     const [isOpen, setIsOpen] = useState<Boolean>(false);
