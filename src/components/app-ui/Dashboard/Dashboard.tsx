@@ -15,13 +15,13 @@ const Dashboard: React.FC<DashProps> = ({ children }) => {
         top: 0,
         left: 0,
       });
-      document.title = 'ABCDG - Dashboard';
+      document.title = 'ABCD - Dashboard';
     }, []);
 
     const [isOpen, setIsOpen] = useState<Boolean>(false);
     return (
       <LayoutWrapper>
-        {/* <SideMenu isOpen={isOpen} /> */}
+        <SideMenu isOpen={isOpen} />
         <LayoutContent>
           <TopMenu isOpen={isOpen} handleClick={() => setIsOpen(!isOpen)} />
           {/*  )} */}

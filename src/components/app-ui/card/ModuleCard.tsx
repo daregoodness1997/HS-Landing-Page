@@ -12,22 +12,41 @@ const ModuleCard: React.FC<Props> = ({ label, onClick }) => {
       onClick={onClick}
       sx={[
         {
-          px: { lg: 6, xs: 2 },
-          py: { lg: 4, xs: 2 },
+          px: { lg: 2, xs: 2 },
+          py: { lg: 2, xs: 2 },
           borderRadius: '6px',
           background: '#cce3ff',
           transition: 'all 0.5s ease-in-out',
           cursor: 'pointer',
-          border: '1px solid #7195c2',
+          height: '100%',
         },
         {
           '&:hover': {
-            border: '1px solid #3f5eea',
+            background: '#3f5eea',
+            color: '#fff',
           },
         },
       ]}
     >
-      <Typography>{label}</Typography>
+      <Box
+        sx={{
+          width: '48px',
+          height: '48px',
+          mb: 2,
+          background: '#FBCEB1',
+          borderRadius: '100%',
+          display: 'grid',
+          placeItems: 'center',
+        }}
+      >
+        <i className='bi bi-people'></i>
+      </Box>
+      <Typography sx={{ fontWeight: 'bold', fontSize: '24px' }}>
+        {label}
+      </Typography>
+      <Typography>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga dolor
+      </Typography>
     </Box>
   );
 };
