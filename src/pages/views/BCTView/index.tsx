@@ -25,6 +25,7 @@ const BCTView = () => {
     if (content === 'Pulse') return <Pulse />;
     if (content === 'CVS') return <CVs />;
   };
+
   return (
     <Box>
       <div>
@@ -40,7 +41,7 @@ const BCTView = () => {
                     label='Pulse'
                     onClick={() => {
                       setContent('Pulse');
-                      setStep(1);
+                      setStep(step + 1);
                       handleOpen();
                     }}
                   />
@@ -48,8 +49,7 @@ const BCTView = () => {
                     label='CVS'
                     onClick={() => {
                       setContent('CVS');
-                      handleOpen();
-                      setStep(2);
+                      setStep(step + 1);
                     }}
                   />
                 </div>
