@@ -6,6 +6,8 @@ import ModuleCard from '../../../components/app-ui/card/ModuleCard';
 import ModalBox from '../../../components/app-ui/modal';
 import { BottomWrapper } from '../../../components/app-ui/styles';
 import AppButton from '../../../components/app-ui/app-button';
+import Pulse from './flows/Pulse';
+import CVs from './flows/CVs';
 
 const BCTView = () => {
   const [open, setOpen] = useState(false);
@@ -19,8 +21,9 @@ const BCTView = () => {
     setOpen(false);
   };
 
-  const renderContext = () => {
-    return <></>;
+  const renderContent = () => {
+    if (content === 'Pulse') return <Pulse />;
+    if (content === 'CVS') return <CVs />;
   };
   return (
     <Box>
@@ -51,6 +54,8 @@ const BCTView = () => {
                   />
                 </div>
               )}
+
+              {step === 1 && renderContent()}
             </div>
           </div>
         </div>
@@ -58,7 +63,7 @@ const BCTView = () => {
       <BottomWrapper>
         <button onClick={() => setStep(step - 1)}>Back</button>
 
-        <AppButton label='Continue' />
+        <AppButton label='Continue' onClick={() => handleClose()} />
       </BottomWrapper>
     </Box>
   );
