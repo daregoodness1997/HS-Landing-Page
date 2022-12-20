@@ -6,6 +6,8 @@ import ModuleCard from '../../../components/app-ui/card/ModuleCard';
 import ModalBox from '../../../components/app-ui/modal';
 import { BottomWrapper } from '../../../components/app-ui/styles';
 import AppButton from '../../../components/app-ui/app-button';
+import Pulse from './flows/Pulse';
+import CVs from './flows/CVs';
 
 const BCTView = () => {
   const [open, setOpen] = useState(false);
@@ -19,9 +21,11 @@ const BCTView = () => {
     setOpen(false);
   };
 
-  const renderContext = () => {
-    return <></>;
+  const renderContent = () => {
+    if (content === 'Pulse') return <Pulse />;
+    if (content === 'CVS') return <CVs />;
   };
+
   return (
     <Box>
       <div>
@@ -32,12 +36,12 @@ const BCTView = () => {
             </h2>
             <div className='bg-white  mt-6 sm:p-4  boxShadow-lg rounded-md flex  flex-col items-center justify-center inside'>
               {step === 0 && (
-                <div className='grid gap-16 lg:grid-cols-18 lg:gap-x-12 lg:gap-y-4 '>
+                <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12'>
                   <ModuleCard
                     label='Pulse'
                     onClick={() => {
                       setContent('Pulse');
-                      setStep(1);
+                      setStep(step + 1);
                       handleOpen();
                     }}
                   />
@@ -45,12 +49,13 @@ const BCTView = () => {
                     label='CVS'
                     onClick={() => {
                       setContent('CVS');
-                      handleOpen();
-                      setStep(2);
+                      setStep(step + 1);
                     }}
                   />
                 </div>
               )}
+
+              {step === 1 && renderContent()}
             </div>
           </div>
         </div>
@@ -58,7 +63,7 @@ const BCTView = () => {
       <BottomWrapper>
         <button onClick={() => setStep(step - 1)}>Back</button>
 
-        <AppButton label='Continue' />
+        <AppButton label='Continue' onClick={() => handleClose()} />
       </BottomWrapper>
     </Box>
   );

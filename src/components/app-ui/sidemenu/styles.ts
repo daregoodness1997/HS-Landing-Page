@@ -13,7 +13,7 @@ export const Sidemenu = styled.div`
 
   }
   
-  }
+}
 &.side-menu
   position: fixed;
   top:0;
@@ -22,7 +22,8 @@ export const Sidemenu = styled.div`
   background: rgb(37,99,235);
   color: white;
   width: 300px;
-  height: 100vh;
+  min-height: 100vh;
+  height:100%;
   box-sizing: border-box;
   padding: 2rem 1.5rem ;
   transition: width 0.2s ease-in;

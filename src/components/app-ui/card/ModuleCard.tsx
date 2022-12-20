@@ -3,10 +3,11 @@ import { Box, Typography, Grid } from '@mui/material';
 
 interface Props {
   label: string;
-  onClick: (e?: any) => void;
+  paragraph?: string;
+  onClick?: (e?: any) => void;
 }
 
-const ModuleCard: React.FC<Props> = ({ label, onClick }) => {
+const ModuleCard: React.FC<Props> = ({ label, onClick, paragraph }) => {
   return (
     <Box
       onClick={onClick}
@@ -14,6 +15,7 @@ const ModuleCard: React.FC<Props> = ({ label, onClick }) => {
         {
           px: { lg: 2, xs: 2 },
           py: { lg: 2, xs: 2 },
+          width: '100%',
           borderRadius: '6px',
           background: '#cce3ff',
           transition: 'all 0.5s ease-in-out',
@@ -44,9 +46,7 @@ const ModuleCard: React.FC<Props> = ({ label, onClick }) => {
       <Typography sx={{ fontWeight: 'bold', fontSize: '24px' }}>
         {label}
       </Typography>
-      <Typography>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga dolor
-      </Typography>
+      <Typography>{paragraph}</Typography>
     </Box>
   );
 };

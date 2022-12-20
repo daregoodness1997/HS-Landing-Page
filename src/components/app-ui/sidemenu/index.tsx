@@ -7,16 +7,22 @@ import { MainMenu, Sidemenu, TopSection } from './styles';
 
 export const menuItems = [
   {
-    name: 'Home',
+    name: 'Treatments',
     exact: true,
     to: '/app',
-    iconClassName: 'bi bi-house-door',
-    subMenus: [{ name: 'Dashboard', to: '/app/overview/dashboard' }],
+    iconClassName: 'bi bi-binoculars',
+    subMenus: [],
   },
   {
-    name: 'Medications',
+    name: 'Nursing',
     exact: true,
-    to: '/app/medicals',
+    to: '/app/nursing',
+    iconClassName: 'bi bi-asterisk',
+  },
+  {
+    name: 'Emergency',
+    exact: true,
+    to: '/app/emergency',
     iconClassName: 'bi bi-people',
   },
 
@@ -72,14 +78,14 @@ function SideMenu({ isOpen }) {
               key={index}
               name={menuItem.name}
               to={menuItem.to}
-              subMenus={menuItem.subMenus || []}
+              subMenus={menuItem?.subMenus || []}
               iconClassName={menuItem.iconClassName}
               onClick={() => {
                 if (menuItem.action) {
                   menuItem.action();
                   navigate(menuItem.to);
                 }
-                if (menuItem.to && !menuItem.subMenus) {
+                if (menuItem.to && !menuItem?.subMenus) {
                   navigate(menuItem.to);
                 }
                 if (inactive) {

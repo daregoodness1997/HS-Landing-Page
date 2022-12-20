@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ModuleCard from '../../../../components/app-ui/card/ModuleCard';
+import ModuleCard from '../../components/app-ui/card/ModuleCard';
 
-const CVs = () => {
+const Shock = () => {
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState('');
   const [step, setStep] = useState(0);
@@ -97,4 +97,4 @@ const CVs = () => {
   );
 };
 
-export default CVs;
+export default Shock;

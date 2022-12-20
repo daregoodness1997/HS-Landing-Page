@@ -18,7 +18,7 @@ import Shock from '../views/Shock';
 //   data: any[];
 // }
 
-const Overview = () => {
+const Nursing = () => {
   const data = localStorage.getItem('user') || '';
   const user = JSON.parse(data);
   const [open, setOpen] = useState(false);
@@ -93,49 +93,11 @@ const Overview = () => {
         >
           <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
-              label='Treatment'
-              onClick={() => {
-                handleOpen();
-                setContent('Treatment');
-              }}
-            />
-          </Grid>
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='NCT'
-              onClick={() => {
-                handleOpen();
-                setContent('NCT');
-              }}
-            />
-          </Grid>
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='MNT
-'
-              onClick={() => {
-                handleOpen();
-                setContent('MNT');
-              }}
-            />
-          </Grid>
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
               label='Ward Routine Nurse
 '
               onClick={() => {
                 handleOpen();
                 setContent('Ward');
-              }}
-            />
-          </Grid>
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='Management of BCT
-'
-              onClick={() => {
-                handleOpen();
-                setContent('Management of BCT');
               }}
             />
           </Grid>
@@ -148,7 +110,6 @@ const Overview = () => {
               }}
             />
           </Grid>
-
           <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
               label='Observation  & Vital Monitoring Signs'
@@ -160,74 +121,6 @@ const Overview = () => {
           </Grid>
           <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
-              label='Coma'
-              onClick={() => {
-                handleOpen();
-                setContent('Coma');
-              }}
-            />
-          </Grid>
-
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='Shock'
-              onClick={() => {
-                handleOpen();
-                setContent('Shock');
-              }}
-            />
-          </Grid>
-
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='Acute Coronary Syndrome ST'
-              onClick={() => {
-                handleOpen();
-                setContent('Acute Coronary Syndrome ST');
-              }}
-            />
-          </Grid>
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='Acute Coronary Syndrome No ST'
-              onClick={() => {
-                handleOpen();
-                setContent('Acute Coronary Syndrome No ST');
-              }}
-            />
-          </Grid>
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='Acute Pulmonary Oedema'
-              onClick={() => {
-                handleOpen();
-                setContent('Acute Pulmonary Oedema');
-              }}
-            />
-          </Grid>
-
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='Cardiogenic'
-              onClick={() => {
-                handleOpen();
-                setContent('Cadiogenic');
-              }}
-            />
-          </Grid>
-
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='Acute Abdomieni'
-              onClick={() => {
-                handleOpen();
-                setContent('Acute Abdomieni');
-              }}
-            />
-          </Grid>
-
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
               label='Pregnancy - Antenatal Care'
               onClick={() => {
                 handleOpen();
@@ -235,7 +128,6 @@ const Overview = () => {
               }}
             />
           </Grid>
-
           <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
               label='Antenatal Care & Subsequent'
@@ -245,19 +137,10 @@ const Overview = () => {
               }}
             />
           </Grid>
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='Name'
-              onClick={() => {
-                handleOpen();
-                setContent('Name');
-              }}
-            />
-          </Grid>
         </Grid>
       </Box>
     </>
   );
 };
 
-export default Overview;
+export default Nursing;

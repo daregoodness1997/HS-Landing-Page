@@ -6,6 +6,8 @@ import Login from '../pages/Login';
 import MNTResgister from '../pages/MNT';
 import NCTRegister from '../pages/NCT';
 import Overview from '../pages/Overview';
+import Nursing from '../pages/Overview/Nursing';
+import Treatment from '../pages/Overview/Treatment';
 import PrivateOutlet from '../pages/PrivateOutlet';
 
 const AppRoutes = () => {
@@ -17,7 +19,9 @@ const AppRoutes = () => {
         <Route path='/nct' element={<NCTRegister />} />
         <Route path='/login' element={<Login />} />
         <Route path='/app' element={<PrivateOutlet />}>
-          <Route index element={<Overview />} />
+          <Route index element={<Treatment />} />
+          <Route path='/app/nursing' element={<Nursing />} />
+          <Route path='/app/emergency' element={<Overview />} />
         </Route>
       </Routes>
     </Router>
