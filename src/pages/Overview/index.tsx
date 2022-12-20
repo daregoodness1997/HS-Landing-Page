@@ -135,6 +135,121 @@ const Overview = () => {
               }}
             />
           </Grid>
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
+              label='Breathlessness'
+              onClick={() => {
+                handleOpen();
+                setContent('Breathlessness');
+              }}
+            />
+          </Grid>
+
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
+              label='Observation  & Vital Monitoring Signs'
+              onClick={() => {
+                handleOpen();
+                setContent('Observation  & Vital Monitoring Signs');
+              }}
+            />
+          </Grid>
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
+              label='Coma'
+              onClick={() => {
+                handleOpen();
+                setContent('Coma');
+              }}
+            />
+          </Grid>
+
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
+              label='Shock'
+              onClick={() => {
+                handleOpen();
+                setContent('Shock');
+              }}
+            />
+          </Grid>
+
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
+              label='Acute Coronary Syndrome ST'
+              onClick={() => {
+                handleOpen();
+                setContent('Acute Coronary Syndrome ST');
+              }}
+            />
+          </Grid>
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
+              label='Acute Coronary Syndrome No ST'
+              onClick={() => {
+                handleOpen();
+                setContent('Acute Coronary Syndrome No ST');
+              }}
+            />
+          </Grid>
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
+              label='Acute Pulmonary Oedema'
+              onClick={() => {
+                handleOpen();
+                setContent('Acute Pulmonary Oedema');
+              }}
+            />
+          </Grid>
+
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
+              label='Cardiogenic'
+              onClick={() => {
+                handleOpen();
+                setContent('Cadiogenic');
+              }}
+            />
+          </Grid>
+
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
+              label='Acute Abdomieni'
+              onClick={() => {
+                handleOpen();
+                setContent('Acute Abdomieni');
+              }}
+            />
+          </Grid>
+
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
+              label='Pregnancy - Antenatal Care'
+              onClick={() => {
+                handleOpen();
+                setContent('Pregnancy - Antenatal Care');
+              }}
+            />
+          </Grid>
+
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
+              label='Antenatal Care & Subsequent'
+              onClick={() => {
+                handleOpen();
+                setContent('Antenatal Care & Subsequent');
+              }}
+            />
+          </Grid>
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
+              label='Name'
+              onClick={() => {
+                handleOpen();
+                setContent('Name');
+              }}
+            />
+          </Grid>
         </Grid>
       </Box>
     </>

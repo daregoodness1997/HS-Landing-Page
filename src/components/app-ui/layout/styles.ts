@@ -10,7 +10,8 @@ export const LayoutWrapper = styled.div`
 
 export const LayoutContent = styled.div`
   width: 100%;
-
+  height: 100vh;
+  overflow: auto;
   .layout {
     height: 100%;
   }
