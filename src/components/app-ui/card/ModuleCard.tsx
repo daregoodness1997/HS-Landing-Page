@@ -4,7 +4,7 @@ import { Box, Typography, Grid } from '@mui/material';
 interface Props {
   label: string;
   paragraph?: string;
-  onClick: (e?: any) => void;
+  onClick?: (e?: any) => void;
 }
 
 const ModuleCard: React.FC<Props> = ({ label, onClick, paragraph }) => {
@@ -15,6 +15,7 @@ const ModuleCard: React.FC<Props> = ({ label, onClick, paragraph }) => {
         {
           px: { lg: 2, xs: 2 },
           py: { lg: 2, xs: 2 },
+          width: '100%',
           borderRadius: '6px',
           background: '#cce3ff',
           transition: 'all 0.5s ease-in-out',

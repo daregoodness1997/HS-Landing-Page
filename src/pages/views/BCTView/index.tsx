@@ -36,7 +36,7 @@ const BCTView = () => {
             </h2>
             <div className='bg-white  mt-6 sm:p-4  boxShadow-lg rounded-md flex  flex-col items-center justify-center inside'>
               {step === 0 && (
-                <div className='grid gap-16 lg:grid-cols-18 lg:gap-x-12 lg:gap-y-4 '>
+                <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12'>
                   <ModuleCard
                     label='Pulse'
                     onClick={() => {

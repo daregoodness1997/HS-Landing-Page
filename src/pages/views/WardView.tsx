@@ -65,7 +65,7 @@ const WardView = () => {
               Ward Routine Nurse
             </h2>
             <div className='bg-white  mt-6 sm:p-4  boxShadow-lg rounded-md flex  flex-col items-center justify-center inside'>
-              <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12 '>
+              <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12'>
                 <ModuleCard
                   label='Morning'
                   onClick={() => {
