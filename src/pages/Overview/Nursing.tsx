@@ -49,6 +49,9 @@ const Nursing = () => {
     if (content === 'Management of BCT') return <BCTView />;
     if (content === 'Breathlessness') return <Breathlessness />;
     if (content === 'Shock') return <Shock />;
+    if (content === 'Observation  & Vital Monitoring Signs') return <NCTView />;
+    if (content === 'Antenatal Care & Subsequent') return <Shock />;
+    if (content === 'Pregnancy - Antenatal Care') return <NCTView />;
     return;
   };
 
