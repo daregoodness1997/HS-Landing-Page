@@ -15,6 +15,8 @@ import Shock from '../views/Shock';
 import BreathlessView from '../views/BreathlessView';
 import Cardiogenic from '../views/Cardiogenic';
 import AcuteCoronaryView from '../views/AcuteCoronaryView';
+import AcutePulmonaryView from '../views/AcutePulmonaryView';
+import ComaView from '../views/Coma';
 
 // interface MedicationsProps {
 //   peninclin?: boolean;
@@ -52,8 +54,10 @@ const Overview = () => {
     if (content === 'Management of BCT') return <BCTView />;
     if (content === 'Breathlessness') return <BreathlessView />;
     if (content === 'Shock') return <Shock />;
+    if (content === 'Coma') return <ComaView />;
     if (content === 'Cardiogenic') return <Cardiogenic />;
     if (content === 'Acute Coronary Syndrome ST') return <AcuteCoronaryView />;
+    if (content === 'Acute Pulmonary Oedema') return <AcutePulmonaryView />;
     return;
   };
 

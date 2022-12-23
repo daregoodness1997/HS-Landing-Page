@@ -10,8 +10,8 @@ import NCTView from '../views/NCTView';
 import MNTView from '../views/MNTView';
 import WardView from '../views/WardView';
 import BCTView from '../views/BCTView';
-import Breathlessness from '../views/Breathlessness';
 import Shock from '../views/Shock';
+import BreathlessView from '../views/BreathlessView';
 
 // interface MedicationsProps {
 //   peninclin?: boolean;
@@ -47,7 +47,7 @@ const Nursing = () => {
     if (content === 'MNT') return <MNTView />;
     if (content === 'Ward') return <WardView />;
     if (content === 'Management of BCT') return <BCTView />;
-    if (content === 'Breathlessness') return <Breathlessness />;
+    if (content === 'Breathlessness') return <BreathlessView />;
     if (content === 'Shock') return <Shock />;
     if (content === 'Observation  & Vital Monitoring Signs') return <NCTView />;
     if (content === 'Antenatal Care & Subsequent') return <Shock />;
