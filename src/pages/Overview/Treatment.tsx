@@ -12,6 +12,7 @@ import WardView from '../views/WardView';
 import BCTView from '../views/BCTView';
 import Breathlessness from '../views/Breathlessness';
 import Shock from '../views/Shock';
+import ComaView from '../views/Coma';
 
 // interface MedicationsProps {
 //   peninclin?: boolean;
@@ -43,6 +44,7 @@ const Treatment = () => {
 
   const renderContext = () => {
     if (content === 'Treatment') return <TreatmentView setOpen={setOpen} />;
+    if (content === 'Coma') return <ComaView />;
 
     return;
   };
@@ -92,6 +94,15 @@ const Treatment = () => {
               onClick={() => {
                 handleOpen();
                 setContent('Treatment');
+              }}
+            />
+          </Grid>
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
+              label='Coma'
+              onClick={() => {
+                handleOpen();
+                setContent('Coma');
               }}
             />
           </Grid>
