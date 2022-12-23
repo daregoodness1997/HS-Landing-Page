@@ -91,15 +91,7 @@ const Overview = () => {
           columns={{ xs: 4, sm: 8, md: 12 }}
           sx={{ width: '100%', px: { lg: '10%', xs: 0 }, pt: 6 }}
         >
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='Treatment'
-              onClick={() => {
-                handleOpen();
-                setContent('Treatment');
-              }}
-            />
-          </Grid>
+         
           <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
               label='NCT'
@@ -119,16 +111,7 @@ const Overview = () => {
               }}
             />
           </Grid>
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='Ward Routine Nurse
-'
-              onClick={() => {
-                handleOpen();
-                setContent('Ward');
-              }}
-            />
-          </Grid>
+          
           <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
               label='Management of BCT
@@ -226,25 +209,7 @@ const Overview = () => {
             />
           </Grid>
 
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='Pregnancy - Antenatal Care'
-              onClick={() => {
-                handleOpen();
-                setContent('Pregnancy - Antenatal Care');
-              }}
-            />
-          </Grid>
-
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='Antenatal Care & Subsequent'
-              onClick={() => {
-                handleOpen();
-                setContent('Antenatal Care & Subsequent');
-              }}
-            />
-          </Grid>
+     
           <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
               label='Name'
