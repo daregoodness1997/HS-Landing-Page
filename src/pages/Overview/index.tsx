@@ -12,6 +12,9 @@ import WardView from '../views/WardView';
 import BCTView from '../views/BCTView';
 import Breathlessness from '../views/Breathlessness';
 import Shock from '../views/Shock';
+import BreathlessView from '../views/BreathlessView';
+import Cardiogenic from '../views/Cardiogenic';
+import AcuteCoronaryView from '../views/AcuteCoronaryView';
 
 // interface MedicationsProps {
 //   peninclin?: boolean;
@@ -47,8 +50,10 @@ const Overview = () => {
     if (content === 'MNT') return <MNTView />;
     if (content === 'Ward') return <WardView />;
     if (content === 'Management of BCT') return <BCTView />;
-    if (content === 'Breathlessness') return <Breathlessness />;
+    if (content === 'Breathlessness') return <BreathlessView />;
     if (content === 'Shock') return <Shock />;
+    if (content === 'Cardiogenic') return <Cardiogenic />;
+    if (content === 'Acute Coronary Syndrome ST') return <AcuteCoronaryView />;
     return;
   };
 
@@ -91,7 +96,6 @@ const Overview = () => {
           columns={{ xs: 4, sm: 8, md: 12 }}
           sx={{ width: '100%', px: { lg: '10%', xs: 0 }, pt: 6 }}
         >
-         
           <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
               label='NCT'
@@ -111,7 +115,7 @@ const Overview = () => {
               }}
             />
           </Grid>
-          
+
           <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
               label='Management of BCT
@@ -194,7 +198,7 @@ const Overview = () => {
               label='Cardiogenic'
               onClick={() => {
                 handleOpen();
-                setContent('Cadiogenic');
+                setContent('Cardiogenic');
               }}
             />
           </Grid>
@@ -209,7 +213,6 @@ const Overview = () => {
             />
           </Grid>
 
-     
           <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
               label='Name'
