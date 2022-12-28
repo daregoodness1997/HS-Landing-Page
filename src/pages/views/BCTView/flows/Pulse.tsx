@@ -39,7 +39,7 @@ const Pulse = () => {
   return (
     <div>
       {step === 0 && (
-        <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12'>
+        <div className='flex gap-2'>
           <ModuleCard
             label='Yes'
             onClick={() => {
@@ -69,7 +69,7 @@ const Pulse = () => {
       )}
 
       {step === 3 && (
-        <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12'>
+        <div className='flex gap-2'>
           <h4 className='my-2'>Circulation</h4>
           <ModuleCard
             label='Normal'

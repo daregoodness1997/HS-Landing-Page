@@ -7,8 +7,7 @@ const Shock = () => {
   const [step, setStep] = useState(0);
 
   const renderCirculation = () => {
-    if (content === 'Normal')
-      return <ModuleCard label='See BCT2' onClick={() => {}} />;
+    if (content === 'Normal') return <ModuleCard label='See BCT2' />;
     if (content === 'NotNormal')
       return (
         <div>
@@ -22,12 +21,10 @@ const Shock = () => {
       );
   };
 
-  console.log('Content', content);
-
   return (
     <div>
       {step === 0 && (
-        <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12'>
+        <div className='flex gap-2'>
           <ModuleCard
             label='Yes'
             onClick={() => {
@@ -63,31 +60,24 @@ const Shock = () => {
         />
       )}
       {step === 3 && (
-        <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12'>
-          <ModuleCard
-            label='Check  Electrolytes'
-            onClick={() => {
-              setStep(step + 1);
-            }}
-          />
+        <div className='flex gap-2'>
+          <ModuleCard label='Check  Electrolytes' />
         </div>
       )}
 
       {step === 7 && (
-        <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12'>
+        <div className='flex gap-2'>
           <h4 className='my-2'>Circulation</h4>
           <ModuleCard
             label='Normal'
             onClick={() => {
               setContent('Normal');
-              setStep(step + 1);
             }}
           />
           <ModuleCard
             label='Not Normal'
             onClick={() => {
               setContent('NotNormal');
-              setStep(step + 1);
             }}
           />
         </div>

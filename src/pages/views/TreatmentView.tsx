@@ -23,24 +23,24 @@ const TreatmentView: React.FC<Props> = ({ setOpen }) => {
       id: '1',
       name: 'Rheumatic Fever',
       medications: [
-        { peninclin: '1', data: ['Phenoxymethylpenicillin'] },
-        { peninclin: '0', data: ['Sulfadiazine'] },
+        { peninclin: '0', data: ['Phenoxymethylpenicillin'] },
+        { peninclin: '1', data: ['Sulfadiazine'] },
       ],
     },
     {
       id: '2',
       name: 'Streptococcal Infection',
       medications: [
-        { peninclin: '1', data: ['Phenoxymethylpenicillin'] },
-        { peninclin: '0', data: ['Erythromycin', 'Azithromycin'] },
+        { peninclin: '0', data: ['Phenoxymethylpenicillin'] },
+        { peninclin: '1', data: ['Erythromycin', 'Azithromycin'] },
       ],
     },
     {
       id: '3',
       name: 'Meningitis',
       medications: [
-        { peninclin: '1', data: ['Ciprofloxacin'] },
-        { peninclin: '0', data: ['Rifampicin', 'Ceftriazone'] },
+        { peninclin: '0', data: ['Ciprofloxacin'] },
+        { peninclin: '1', data: ['Rifampicin', 'Ceftriazone'] },
       ],
     },
   ];

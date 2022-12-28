@@ -98,7 +98,17 @@
   height: calc(100vh - 16%);
   padding: 0 1rem;
 }
+ul {
+  list-style: circle;
+  text-align: left;
+  padding: 0 2rem;
+  cursor: pointer;
+}
 
 ul.li {
   list-style-type: circle;
+}
+
+h2 {
+  font-weight: bold;
 }
