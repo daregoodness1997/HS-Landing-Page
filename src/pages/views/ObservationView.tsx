@@ -14,16 +14,7 @@ const ObservationView = () => {
   };
 
   const renderContext = () => {
-    if (timeContent === 'Chest Pain')
-      return (
-        <>
-          <ul>
-            <li>Chest Pain @rest </li>
-            <li>Chest Pain over zomin</li>
-            <li>Chest Pain + autonomic symptoms</li>
-          </ul>
-        </>
-      );
+    if (timeContent === 'Routine') return <h3>4-6 Hourly</h3>;
 
     return;
   };
@@ -44,42 +35,33 @@ const ObservationView = () => {
               Observation and Vital Monitoring
             </h2>
             {step === 0 && (
-              <Box
-                className='bg-white  w-full'
-                sx={[
-                  {
-                    px: { lg: 1, xs: 1 },
-                    py: { lg: 1, xs: 1 },
-                    width: '100%',
-                    borderRadius: '6px',
-                    background: '#cce3ff',
-                    transition: 'all 0.5s ease-in-out',
-                    cursor: 'pointer',
-                    height: '100%',
-                  },
-                  {
-                    '&:hover': {
-                      background: '#3f5eea',
-                      color: '#fff',
-                    },
-                  },
-                ]}
-                onClick={() => {
-                  setStep(step + 1);
-                }}
-              >
-                <h2>Initial Treatment</h2>
-                <ul
+              <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12'>
+                <ModuleCard
+                  label='Routine'
+                  onClick={() => {
+                    setTimeContent('Routine');
+                    handleOpen();
+                  }}
+                />
+                <ModuleCard
+                  label='ICU'
                   onClick={() => {
                     setStep(step + 1);
                   }}
-                >
-                  <li>Asphine</li>
-                  <li>Morphine</li>
-                  <li>GTW</li>
-                  <li>O2</li>
-                </ul>
-              </Box>
+                />
+                <ModuleCard
+                  label='Post Up'
+                  onClick={() => {
+                    setStep(step + 1);
+                  }}
+                />
+                <ModuleCard
+                  label='Blood Transfusion'
+                  onClick={() => {
+                    setStep(step + 1);
+                  }}
+                />
+              </div>
             )}
             {step === 1 && (
               <Box
