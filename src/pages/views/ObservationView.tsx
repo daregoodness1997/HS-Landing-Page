@@ -15,6 +15,44 @@ const ObservationView = () => {
 
   const renderContext = () => {
     if (timeContent === 'Routine') return <h3>4-6 Hourly</h3>;
+    if (timeContent === 'Post Up') return <h3>Q 15 min X2 ( If Stable) </h3>;
+    if (timeContent === 'Stable') return <h3>Hourly</h3>;
+    if (timeContent === 'Unstable') return <h3>Dew</h3>;
+    if (timeContent === 'Blood Transfusion')
+      return (
+        <ul>
+          <li>Before transfusion</li>
+          <li>5 min into transfusion</li>
+          <li>Every hour until completed</li>
+          <li>Every hour X after tranfusion</li>
+        </ul>
+      );
+
+    return;
+  };
+
+  const renderStepContent = () => {
+    if (timeContent === 'ICU')
+      return (
+        <div className='bg-white  w-full'>
+          <div className='flex gap-2'>
+            <ModuleCard
+              label='Stable'
+              onClick={() => {
+                setTimeContent('Stable');
+                handleOpen();
+              }}
+            />
+            <ModuleCard
+              label='Unstable'
+              onClick={() => {
+                setTimeContent('Unstable');
+                handleOpen();
+              }}
+            />
+          </div>
+        </div>
+      );
 
     return;
   };
@@ -47,203 +85,26 @@ const ObservationView = () => {
                   label='ICU'
                   onClick={() => {
                     setStep(step + 1);
+                    setTimeContent('ICU');
                   }}
                 />
                 <ModuleCard
                   label='Post Up'
                   onClick={() => {
-                    setStep(step + 1);
+                    setTimeContent('Post Up');
+                    handleOpen();
                   }}
                 />
                 <ModuleCard
                   label='Blood Transfusion'
                   onClick={() => {
-                    setStep(step + 1);
+                    setTimeContent('Blood Transfusion');
+                    handleOpen();
                   }}
                 />
               </div>
             )}
-            {step === 1 && (
-              <Box
-                sx={[
-                  {
-                    px: { lg: 1, xs: 1 },
-                    py: { lg: 4, xs: 1 },
-                    width: '100%',
-                    borderRadius: '6px',
-                    background: '#cce3ff',
-                    transition: 'all 0.5s ease-in-out',
-                    cursor: 'pointer',
-                    height: '100%',
-                  },
-                  {
-                    '&:hover': {
-                      background: '#3f5eea',
-                      color: '#fff',
-                    },
-                  },
-                ]}
-                onClick={() => {
-                  setStep(step + 1);
-                }}
-              >
-                RCG Risk Assesment
-              </Box>
-            )}
-            {step === 2 && (
-              <div className='bg-white  w-full'>
-                <div className='flex gap-2'>
-                  <Box
-                    sx={[
-                      {
-                        px: { lg: 1, xs: 1 },
-                        py: { lg: 1, xs: 1 },
-                        width: '100%',
-                        borderRadius: '6px',
-                        background: '#cce3ff',
-                        transition: 'all 0.5s ease-in-out',
-                        cursor: 'pointer',
-                        height: '100%',
-                      },
-                      {
-                        '&:hover': {
-                          background: '#3f5eea',
-                          color: '#fff',
-                        },
-                      },
-                    ]}
-                    onClick={() => {
-                      setStep(step + 1);
-                    }}
-                  >
-                    <ul>
-                      <li>High Risk</li>
-                      <li>Ongoing pain </li>
-                      <li>ST </li>
-                      <li>Troponin </li>
-                    </ul>
-                  </Box>
-                  <Box
-                    sx={[
-                      {
-                        px: { lg: 1, xs: 1 },
-                        py: { lg: 1, xs: 1 },
-                        width: '100%',
-                        borderRadius: '6px',
-                        background: '#cce3ff',
-                        transition: 'all 0.5s ease-in-out',
-                        cursor: 'pointer',
-                        height: '100%',
-                      },
-                      {
-                        '&:hover': {
-                          background: '#3f5eea',
-                          color: '#fff',
-                        },
-                      },
-                    ]}
-                  >
-                    <ul>
-                      <li>Low Risk</li>
-                      <li>No further pain </li>
-                      <li>ST </li>
-                      <li>Normal </li>
-                      <li>NoTroponin </li>
-                    </ul>
-                  </Box>
-                </div>
-              </div>
-            )}
-            {step === 3 && (
-              <div className='bg-white  w-full'>
-                <div className='flex gap-2'>
-                  <Box
-                    sx={[
-                      {
-                        px: { lg: 1, xs: 1 },
-                        py: { lg: 1, xs: 1 },
-                        width: '100%',
-                        borderRadius: '6px',
-                        background: '#cce3ff',
-                        transition: 'all 0.5s ease-in-out',
-                        cursor: 'pointer',
-                        height: '100%',
-                      },
-                      {
-                        '&:hover': {
-                          background: '#3f5eea',
-                          color: '#fff',
-                        },
-                      },
-                    ]}
-                    onClick={() => {
-                      setStep(step + 1);
-                    }}
-                  >
-                    <h2>Antibiotics</h2>
-
-                    <ul>
-                      <li>GP II</li>
-                      <li>Add </li>
-                    </ul>
-                  </Box>
-                  <Box
-                    sx={[
-                      {
-                        px: { lg: 1, xs: 1 },
-                        py: { lg: 1, xs: 1 },
-                        width: '100%',
-                        borderRadius: '6px',
-                        background: '#cce3ff',
-                        transition: 'all 0.5s ease-in-out',
-                        cursor: 'pointer',
-                        height: '100%',
-                      },
-                      {
-                        '&:hover': {
-                          background: '#3f5eea',
-                          color: '#fff',
-                        },
-                      },
-                    ]}
-                    onClick={() => {
-                      setStep(step + 1);
-                    }}
-                  >
-                    <h2>Medical Therapy</h2>
-                    <ul>
-                      <li>IC Blocker</li>
-                      <li>Intensive </li>
-                    </ul>
-                  </Box>
-                </div>
-              </div>
-            )}
-            {step === 4 && (
-              <Box
-                sx={[
-                  {
-                    px: { lg: 1, xs: 1 },
-                    py: { lg: 4, xs: 1 },
-                    width: '100%',
-                    borderRadius: '6px',
-                    background: '#cce3ff',
-                    transition: 'all 0.5s ease-in-out',
-                    cursor: 'pointer',
-                    height: '100%',
-                  },
-                  {
-                    '&:hover': {
-                      background: '#3f5eea',
-                      color: '#fff',
-                    },
-                  },
-                ]}
-                onClick={() => {}}
-              >
-                PCI
-              </Box>
-            )}
+            {step === 1 && <>{renderStepContent()}</>}
           </div>
         </div>
       </div>
