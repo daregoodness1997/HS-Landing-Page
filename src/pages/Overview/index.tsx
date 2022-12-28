@@ -19,6 +19,7 @@ import AcutePulmonaryView from '../views/AcutePulmonaryView';
 import ComaView from '../views/Coma';
 import AcuteAbdominei from '../views/AcuteAbdominei';
 import AcuteCoronaryViewNoST from '../views/AcuteCoronaryViewNoST';
+import ObservationView from '../views/ObservationView';
 
 // interface MedicationsProps {
 //   peninclin?: boolean;
@@ -63,6 +64,8 @@ const Overview = () => {
       return <AcuteCoronaryViewNoST />;
     if (content === 'Acute Pulmonary Oedema') return <AcutePulmonaryView />;
     if (content === 'Acute Abdomieni') return <AcuteAbdominei />;
+    if (content === 'Observation  & Vital Monitoring Signs')
+      return <ObservationView />;
     return;
   };
 
