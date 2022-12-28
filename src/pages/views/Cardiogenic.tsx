@@ -54,8 +54,8 @@ const Cardiogenic = () => {
             <h2 className='text-2xl font-extrabold tracking-tight text-white sm:text-3xl text-center my-2'>
               Cardiogenic
             </h2>
-            <div className='bg-white  mt-6 sm:p-4  boxShadow-lg rounded-md flex  flex-col items-center justify-center inside'>
-              <div className='grid gap-16 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12'>
+            <div className='bg-white  w-full'>
+              <div className='flex gap-2'>
                 <ModuleCard
                   label='Cardiac'
                   onClick={() => {

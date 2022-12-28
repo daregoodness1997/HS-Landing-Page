@@ -17,6 +17,9 @@ import Cardiogenic from '../views/Cardiogenic';
 import AcuteCoronaryView from '../views/AcuteCoronaryView';
 import AcutePulmonaryView from '../views/AcutePulmonaryView';
 import ComaView from '../views/Coma';
+import AcuteAbdominei from '../views/AcuteAbdominei';
+import AcuteCoronaryViewNoST from '../views/AcuteCoronaryViewNoST';
+import ObservationView from '../views/ObservationView';
 
 // interface MedicationsProps {
 //   peninclin?: boolean;
@@ -57,7 +60,12 @@ const Overview = () => {
     if (content === 'Coma') return <ComaView />;
     if (content === 'Cardiogenic') return <Cardiogenic />;
     if (content === 'Acute Coronary Syndrome ST') return <AcuteCoronaryView />;
+    if (content === 'Acute Coronary Syndrome No ST')
+      return <AcuteCoronaryViewNoST />;
     if (content === 'Acute Pulmonary Oedema') return <AcutePulmonaryView />;
+    if (content === 'Acute Abdomieni') return <AcuteAbdominei />;
+    if (content === 'Observation  & Vital Monitoring Signs')
+      return <ObservationView />;
     return;
   };
 
@@ -213,16 +221,6 @@ const Overview = () => {
               onClick={() => {
                 handleOpen();
                 setContent('Acute Abdomieni');
-              }}
-            />
-          </Grid>
-
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='Name'
-              onClick={() => {
-                handleOpen();
-                setContent('Name');
               }}
             />
           </Grid>

@@ -4,7 +4,7 @@ import Modal from '../../components/Modal';
 import { posts } from '../MNT';
 import ModuleCard from '../../components/app-ui/card/ModuleCard';
 
-const ComaView = () => {
+const AcuteAbdominei = () => {
   const [open, setOpen] = useState(false);
   const [timeContent, setTimeContent] = useState('');
 
@@ -13,32 +13,54 @@ const ComaView = () => {
   };
 
   const renderContext = () => {
-    if (timeContent === 'Metabolic')
+    if (timeContent === 'One')
       return (
-        <>
-          <h4>Drugs </h4>
-          <ul>
-            <li>Glucose </li>
-            <li>Septicaemia</li>
-            <li>Hypothermia</li>
-            <li>Endocrine ( Myxeodemia/Addison's )</li>
-            <li>Hepatic eneophalopathy</li>
-            <li>Urema</li>
-          </ul>
-        </>
+        <div>
+          <ModuleCard
+            label='Focused Abdominei Examination'
+            onClick={() => {
+              setTimeContent('Two');
+            }}
+          />
+        </div>
       );
-    if (timeContent === 'Neurological')
+    if (timeContent === 'Two')
       return (
-        <>
-          <ul>
-            <li>Truama </li>
-            <li>Infectiion( Viral, Bacteria, Cerebral Malaria)</li>
-            <li>Tumour</li>
-            <li>Vascular (Stroke/SAH)</li>
-            <li>Epilepsy (Non-convulsive)</li>
-            <li>Epilepsy (Postetal)</li>
-          </ul>
-        </>
+        <div className='flex gap-2'>
+          <ModuleCard
+            label='Location'
+            onClick={() => {
+              setTimeContent('Three');
+              handleOpen();
+            }}
+          />
+          <ModuleCard
+            label='Causation'
+            onClick={() => {
+              setTimeContent('Three');
+              handleOpen();
+            }}
+          />
+        </div>
+      );
+    if (timeContent === 'Three')
+      return (
+        <div>
+          <ModuleCard
+            label='Investigation'
+            onClick={() => {
+              setTimeContent('Four');
+              handleOpen();
+            }}
+          />
+        </div>
+      );
+
+    if (timeContent === 'Four')
+      return (
+        <div>
+          <ModuleCard label='Diagnosis' />
+        </div>
       );
 
     return;
@@ -57,21 +79,21 @@ const ComaView = () => {
         <div className='h-full '>
           <div>
             <h2 className='text-2xl font-extrabold tracking-tight text-white sm:text-3xl text-center my-2'>
-              Coma ( Unresponsive + Unrousable)
+              Acute Abdominei
             </h2>
             <div className='bg-white  w-full'>
               <div className='flex gap-2'>
                 <ModuleCard
-                  label='Metabolic'
+                  label='History'
                   onClick={() => {
-                    setTimeContent('Metabolic');
+                    setTimeContent('One');
                     handleOpen();
                   }}
                 />
                 <ModuleCard
-                  label='Neurological'
+                  label='Site'
                   onClick={() => {
-                    setTimeContent('Neurological');
+                    setTimeContent('One');
                     handleOpen();
                   }}
                 />
@@ -84,4 +106,4 @@ const ComaView = () => {
   );
 };
 
-export default ComaView;
+export default AcuteAbdominei;
