@@ -1,18 +1,18 @@
-import {Breadcrumbs as MUIBreadcrumbs, Typography} from "@mui/material";
-import React from "react";
-import {useLocation} from "react-router-dom";
+import { Breadcrumbs as MUIBreadcrumbs, Typography } from '@mui/material';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 function Breadcrumbs() {
   const location = useLocation();
 
-  const pathnames = location.pathname.split("/").filter(x => x);
+  const pathnames = location.pathname.split('/').filter(x => x);
 
   console.log(pathnames);
 
   return (
     <MUIBreadcrumbs
-      aria-label="breadcrumb"
-      sx={{display: "flex", flexWrap: "nowrap"}}
+      aria-label='breadcrumb'
+      sx={{ display: 'flex', flexWrap: 'nowrap' }}
     >
       {/* {pathnames.map((name, index) => {
         const last = index === pathnames.length - 1;
@@ -21,30 +21,30 @@ function Breadcrumbs() {
         return last ? ( */}
       {pathnames.length < 2 ? (
         <Typography
-          color="text.primary"
+          color='text.primary'
           //key={to}
           style={{
-            textDecoration: "none",
-            textTransform: "capitalize",
-            fontWeight: "medium",
-            whiteSpace: "nowrap",
+            textDecoration: 'none',
+            textTransform: 'capitalize',
+            fontWeight: 'medium',
+            whiteSpace: 'nowrap',
           }}
         >
-          {pathnames[0]} <i className="bi bi-chevron-right"></i> Path
+          {pathnames[0]} <i className='bi bi-chevron-right'></i> {pathnames[2]}
           {/* Pass breadcrumb context  */}
         </Typography>
       ) : (
         <Typography
-          color="text.primary"
+          color='text.primary'
           //key={to}
           style={{
-            textDecoration: "none",
-            textTransform: "capitalize",
-            fontWeight: "medium",
-            whiteSpace: "nowrap",
+            textDecoration: 'none',
+            textTransform: 'capitalize',
+            fontWeight: 'medium',
+            whiteSpace: 'nowrap',
           }}
         >
-          {pathnames[1]} <i className="bi bi-chevron-right"></i> {pathnames[2]}
+          {pathnames[1]} <i className='bi bi-chevron-right'></i> {pathnames[2]}
           {/* Pass breadcrumb context  */}
         </Typography>
       )}
