@@ -13,6 +13,10 @@ import BCTView from '../views/BCTView';
 import Shock from '../views/Shock';
 import BreathlessView from '../views/BreathlessView';
 import ObservationView from '../views/ObservationView';
+import Antenatal from '../views/Antenatal';
+import AntenatalSub from '../views/AntenatalSubsequent';
+import ModeOfDisinfection from '../views/ModeOfDisinfection';
+import Name from '../views/Name';
 
 // interface MedicationsProps {
 //   peninclin?: boolean;
@@ -47,13 +51,16 @@ const Nursing = () => {
     if (content === 'NCT') return <NCTView />;
     if (content === 'MNT') return <MNTView />;
     if (content === 'Ward') return <WardView />;
+    if (content === 'Name') return <Name />;
     if (content === 'Management of BCT') return <BCTView />;
     if (content === 'Breathlessness') return <BreathlessView />;
     if (content === 'Shock') return <Shock />;
     if (content === 'Observation  & Vital Monitoring Signs')
       return <ObservationView />;
-    if (content === 'Antenatal Care & Subsequent') return <Shock />;
-    if (content === 'Pregnancy - Antenatal Care') return <NCTView />;
+    if (content === 'Antenatal Care & Subsequent') return <AntenatalSub />;
+    if (content === 'Pregnancy - Antenatal Care') return <Antenatal />;
+    if (content === 'Mode of Cleaning/Disinfection')
+      return <ModeOfDisinfection />;
     return;
   };
 
@@ -92,7 +99,7 @@ const Nursing = () => {
         </Box>
         <Grid
           container
-          spacing={{ xs: 4, md: 6 }}
+          spacing={{ xs: 2, md: 2 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
           sx={{ width: '100%', px: { lg: '10%', xs: 0 }, pt: 6 }}
         >
@@ -135,10 +142,28 @@ const Nursing = () => {
           </Grid>
           <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
+              label='Mode of Cleaning/Disinfection'
+              onClick={() => {
+                handleOpen();
+                setContent('Mode of Cleaning/Disinfection');
+              }}
+            />
+          </Grid>
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
               label='Antenatal Care & Subsequent'
               onClick={() => {
                 handleOpen();
                 setContent('Antenatal Care & Subsequent');
+              }}
+            />
+          </Grid>
+          <Grid item xs={6} sm={4} md={4}>
+            <ModuleCard
+              label='Name'
+              onClick={() => {
+                handleOpen();
+                setContent('Name');
               }}
             />
           </Grid>

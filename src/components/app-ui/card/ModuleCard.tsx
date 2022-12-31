@@ -13,8 +13,8 @@ const ModuleCard: React.FC<Props> = ({ label, onClick, paragraph }) => {
       onClick={onClick}
       sx={[
         {
-          px: { lg: 1, xs: 1 },
-          py: { lg: 1, xs: 1 },
+          px: { lg: 2, xs: 2 },
+          py: { lg: 3, xs: 3 },
           width: '100%',
           borderRadius: '6px',
           background: '#cce3ff',
@@ -30,7 +30,7 @@ const ModuleCard: React.FC<Props> = ({ label, onClick, paragraph }) => {
         },
       ]}
     >
-      <Box
+      {/* <Box
         sx={{
           width: '48px',
           height: '48px',
@@ -42,8 +42,8 @@ const ModuleCard: React.FC<Props> = ({ label, onClick, paragraph }) => {
         }}
       >
         <i className='bi bi-people'></i>
-      </Box>
-      <Typography sx={{ fontWeight: 'bold', fontSize: '18px' }}>
+      </Box> */}
+      <Typography sx={{ fontWeight: '500', fontSize: '12px' }}>
         {label}
       </Typography>
       <Typography>{paragraph}</Typography>

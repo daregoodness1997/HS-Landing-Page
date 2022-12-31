@@ -84,7 +84,7 @@ const Treatment = () => {
         </Box>
         <Grid
           container
-          spacing={{ xs: 4, md: 6 }}
+          spacing={{ xs: 2, md: 2 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
           sx={{ width: '100%', px: { lg: '10%', xs: 0 }, pt: 6 }}
         >
