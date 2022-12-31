@@ -1,8 +1,10 @@
 import {
+  Alert,
   Checkbox,
   FormControl,
   FormControlLabel,
   FormGroup,
+  Snackbar,
 } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -19,11 +21,17 @@ import client from '../feather';
 
 function Login() {
   const navigate = useNavigate();
-  const { handleSubmit, control } = useForm();
+  const { handleSubmit, control, register } = useForm();
   //   const { setUser } = useContext(UserContext);
   const [keepMeIn, setKeepMeIn] = useState(false);
   const [loaderTimer, setLoaderTimer] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleClose = event => {
+    setOpen(false);
+  };
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -50,6 +58,8 @@ function Login() {
         localStorage.setItem('user', JSON.stringify(user));
         setLoading(false);
         toast.success('You successfully logged in');
+        setOpen(true);
+        setSuccess(true);
 
         navigate('/app');
       })
@@ -66,24 +76,16 @@ function Login() {
         <Loader />
       ) : (
         <>
+          <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Alert onClose={handleClose} severity='success'>
+              {success ? 'Sucessfully Logged' : 'Error while loogging i'}
+            </Alert>
+          </Snackbar>
           <AuthWrapper paragraph='Login here as an organization'>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <ToastContainer theme='colored' />
+              <Input type='email' label='Email' register={register('email')} />
+              <PasswordInput register={register('password')} />
 
-              <Controller
-                name='email'
-                control={control}
-                render={({ field: { ref: _re, ...field } }) => (
-                  <Input {...field} type='email' label='Email' />
-                )}
-              />
-              <Controller
-                name='password'
-                control={control}
-                render={({ field: { ref: _re, ...field } }) => (
-                  <PasswordInput {...field} />
-                )}
-              />
               <FormControl
                 component='fieldset'
                 sx={{ width: '1r00%', mt: 1, mb: 1 }}

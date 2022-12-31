@@ -9,6 +9,7 @@ import Overview from '../pages/Overview';
 import Nursing from '../pages/Overview/Nursing';
 import Treatment from '../pages/Overview/Treatment';
 import PrivateOutlet from '../pages/PrivateOutlet';
+import Signup from '../pages/Signup';
 
 const AppRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const AppRoutes = () => {
         <Route path='/mnt' element={<MNTResgister />} />
         <Route path='/nct' element={<NCTRegister />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Signup />} />
         <Route path='/app' element={<PrivateOutlet />}>
           <Route index element={<Treatment />} />
           <Route path='/app/nursing' element={<Nursing />} />
