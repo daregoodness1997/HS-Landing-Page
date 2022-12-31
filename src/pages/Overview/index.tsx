@@ -20,6 +20,10 @@ import ComaView from '../views/Coma';
 import AcuteAbdominei from '../views/AcuteAbdominei';
 import AcuteCoronaryViewNoST from '../views/AcuteCoronaryViewNoST';
 import ObservationView from '../views/ObservationView';
+import BCT from '../views/BCT';
+import NCT from '../views/NCT';
+import MNT from '../views/NMT';
+import Antenatal from '../views/Antenatal';
 
 // interface MedicationsProps {
 //   peninclin?: boolean;
@@ -51,14 +55,15 @@ const Overview = () => {
 
   const renderContext = () => {
     if (content === 'Treatment') return <TreatmentView setOpen={setOpen} />;
-    if (content === 'NCT') return <NCTView />;
-    if (content === 'MNT') return <MNTView />;
+    if (content === 'NCT') return <NCT />;
+    if (content === 'MNT') return <MNT />;
     if (content === 'Ward') return <WardView />;
-    if (content === 'Management of BCT') return <BCTView />;
+    if (content === 'Management of BCT') return <BCT />;
     if (content === 'Breathlessness') return <BreathlessView />;
     if (content === 'Shock') return <Shock />;
     if (content === 'Coma') return <ComaView />;
     if (content === 'Cardiogenic') return <Cardiogenic />;
+
     if (content === 'Acute Coronary Syndrome ST') return <AcuteCoronaryView />;
     if (content === 'Acute Coronary Syndrome No ST')
       return <AcuteCoronaryViewNoST />;
@@ -104,13 +109,13 @@ const Overview = () => {
         </Box>
         <Grid
           container
-          spacing={{ xs: 4, md: 6 }}
+          spacing={{ xs: 2, md: 2 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
           sx={{ width: '100%', px: { lg: '10%', xs: 0 }, pt: 6 }}
         >
           <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
-              label='NCT'
+              label='Management of NCT'
               onClick={() => {
                 handleOpen();
                 setContent('NCT');
@@ -119,7 +124,7 @@ const Overview = () => {
           </Grid>
           <Grid item xs={6} sm={4} md={4}>
             <ModuleCard
-              label='MNT
+              label='Management of MNT
 '
               onClick={() => {
                 handleOpen();

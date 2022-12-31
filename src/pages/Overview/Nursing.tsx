@@ -13,6 +13,7 @@ import BCTView from '../views/BCTView';
 import Shock from '../views/Shock';
 import BreathlessView from '../views/BreathlessView';
 import ObservationView from '../views/ObservationView';
+import Antenatal from '../views/Antenatal';
 
 // interface MedicationsProps {
 //   peninclin?: boolean;
@@ -53,7 +54,7 @@ const Nursing = () => {
     if (content === 'Observation  & Vital Monitoring Signs')
       return <ObservationView />;
     if (content === 'Antenatal Care & Subsequent') return <Shock />;
-    if (content === 'Pregnancy - Antenatal Care') return <NCTView />;
+    if (content === 'Pregnancy - Antenatal Care') return <Antenatal />;
     return;
   };
 
@@ -92,7 +93,7 @@ const Nursing = () => {
         </Box>
         <Grid
           container
-          spacing={{ xs: 4, md: 6 }}
+          spacing={{ xs: 2, md: 2 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
           sx={{ width: '100%', px: { lg: '10%', xs: 0 }, pt: 6 }}
         >
