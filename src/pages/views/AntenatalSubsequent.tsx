@@ -4,7 +4,7 @@ import Modal from '../../components/Modal';
 import { posts } from '../MNT';
 import ModuleCard from '../../components/app-ui/card/ModuleCard';
 
-const Antenatal = () => {
+const AntenatalSub = () => {
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState('');
   const [step, setStep] = useState(0);
@@ -63,57 +63,47 @@ const Antenatal = () => {
         <div className='h-full '>
           <div>
             <h2 className='text-2xl font-extrabold tracking-tight text-white sm:text-3xl text-center my-2'>
-              Antenatal
+              Antenatal Care & Subsequent{' '}
             </h2>
             {step === 0 && (
-              <ModuleCard
-                label='Pregnacy - Antenatal Care'
-                onClick={() => setStep(step + 1)}
-              />
-            )}
-            {step === 1 && (
-              <ModuleCard label='Goal' onClick={() => setStep(step + 1)} />
-            )}
-            {step === 2 && (
               <div className='flex gap-2'>
                 <ModuleCard
-                  label='Monitoring'
+                  label='Less than  20 weeks every 4 weeks'
                   onClick={() => setStep(step + 1)}
                 />
+                <ModuleCard
+                  label='20 - 28 Weeks'
+                  onClick={() => setStep(step + 1)}
+                />
+                <ModuleCard
+                  label='28 Weeks or more'
+                  onClick={() => setStep(step + 1)}
+                />
+              </div>
+            )}
+            {step === 1 && (
+              <div className='flex gap-2'>
+                <ModuleCard label='Monitor' onClick={() => setStep(step + 1)} />
                 <ModuleCard
                   label='Education'
                   onClick={() => setStep(step + 1)}
                 />
                 <ModuleCard
-                  label='Prevention of complication'
+                  label='Prevention'
                   onClick={() => setStep(step + 1)}
                 />
               </div>
             )}
+            {step === 2 && (
+              <ModuleCard label='Test' onClick={() => setStep(step + 1)} />
+            )}
             {step === 3 && (
-              <div className='flex gap-2'>
-                <ModuleCard
-                  label='Less than  20 weeks every 4 weeks'
-                  onClick={() => {
-                    handleOpen();
-                    setContent('20 weeks');
-                  }}
-                />
-                <ModuleCard
-                  label='20 - 28 Weeks'
-                  onClick={() => {
-                    handleOpen();
-                    setContent('28 weeks');
-                  }}
-                />
-                <ModuleCard
-                  label='28 Weeks or more'
-                  onClick={() => {
-                    handleOpen();
-                    setContent('28 Weeks or more');
-                  }}
-                />
-              </div>
+              <ul>
+                <li>Urinalysis for glucose</li>
+                <li>HbSerum for down</li>
+                <li>Syndrum Anumaly</li>
+                <li>USS</li>
+              </ul>
             )}
           </div>
         </div>
@@ -122,4 +112,4 @@ const Antenatal = () => {
   );
 };
 
-export default Antenatal;
+export default AntenatalSub;
