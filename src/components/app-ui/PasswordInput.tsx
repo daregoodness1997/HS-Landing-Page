@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { InputBox, InputField, InputLabel } from './style';
 
-const PasswordInput = ({
+interface PasswordProps {
+  label?: string;
+  name?: string;
+  onChange?: (e?: any) => void;
+  errors?: any;
+  register?: any;
+}
+
+const PasswordInput: React.FC<PasswordProps> = ({
   label = 'Password',
   name,
   onChange,
