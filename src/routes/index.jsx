@@ -29,7 +29,7 @@ const AppRoutes = () => {
           <Route index element={<Treatment />} />
           <Route path='/app/nursing' element={<Nursing />} />
           <Route path='/app/emergency' element={<Overview />} />
-          <Route path='/app/admin/' element={<Admin />} />
+          <Route path='/app/admin/' element={<Bands />} />
           <Route path='/app/admin/bands' element={<Bands />} />
           <Route path='/app/admin/employees' element={<Employee />} />
           <Route path='/app/admin/location' element={<Location />} />

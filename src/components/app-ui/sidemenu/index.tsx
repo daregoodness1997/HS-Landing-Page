@@ -31,7 +31,6 @@ export const menuItems = [
     to: '/app/admin',
     iconClassName: 'bi bi-people',
     subMenus: [
-      { name: 'Dashboard', to: '/app/admin' },
       { name: 'Bands', to: '/app/admin/bands' },
       { name: 'Employees', to: '/app/admin/employees' },
       { name: 'Location', to: '/app/admin/location' },

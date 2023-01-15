@@ -10,6 +10,7 @@
     "@feathersjs/socketio-client": "^4.5.15",
     "@headlessui/react": "^1.7.2",
     "@heroicons/react": "^1.0.6",
+    "@hookform/resolvers": "^2.9.10",
     "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.14",
     "@mui/styles": "^5.10.16",
