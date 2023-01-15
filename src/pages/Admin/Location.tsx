@@ -19,6 +19,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { BottomWrapper } from '../../components/app-ui/styles';
 import AppButton from '../../components/app-ui/app-button';
+import ViewText from '../../components/app-ui/view-text';
 
 const Locations = () => {
   const data = localStorage.getItem('user') || '';
@@ -27,7 +28,10 @@ const Locations = () => {
   const LocationServ = client.service('location');
 
   const [open, setOpen] = useState(false);
-  const [selectedBand, setSelectedBand] = useState();
+  const [selectedBand, setSelectedBand] = useState({
+    name: '',
+    locationType: '',
+  });
   const [locations, setLocations] = useState([]);
   const [page, setPage] = useState(0);
   const [limit, setLimit] = useState(50);
@@ -178,6 +182,12 @@ const Locations = () => {
             </BottomWrapper>
           </form>
         )}
+        {modalState === 'View' && (
+          <Box sx={{ display: 'flex', gap: '4px' }}>
+            <ViewText label='Location Name' text={selectedBand?.name} />
+            <ViewText label='Location Type' text={selectedBand?.locationType} />
+          </Box>
+        )}
       </BoxModal>
       <Box sx={{ p: 4 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: 2 }}>
@@ -201,15 +211,17 @@ const Locations = () => {
           </Typography>
           <AppButton onClick={handleCreate} label='Create Location' />
         </Box>
-        <CustomTable
-          title={''}
-          columns={LocationSchema}
-          data={locations}
-          pointerOnHover
-          highlightOnHover
-          striped
-          onRowClicked={handleRowClicked}
-        />
+        <Box sx={{ position: 'relative', zIndex: '0' }}>
+          <CustomTable
+            title={''}
+            columns={LocationSchema}
+            data={locations}
+            pointerOnHover
+            highlightOnHover
+            striped
+            onRowClicked={handleRowClicked}
+          />
+        </Box>
       </Box>
     </>
   );

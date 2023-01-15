@@ -13,6 +13,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { BottomWrapper } from '../../components/app-ui/styles';
 import AppButton from '../../components/app-ui/app-button';
+import ViewText from '../../components/app-ui/view-text';
 
 const Bands = () => {
   const data = localStorage.getItem('user') || '';
@@ -21,7 +22,11 @@ const Bands = () => {
   const BandServ = client.service('bands');
 
   const [open, setOpen] = useState(false);
-  const [selectedBand, setSelectedBand] = useState();
+  const [selectedBand, setSelectedBand] = useState({
+    name: '',
+    bandType: '',
+    description: '',
+  });
   const [facilities, setFacilities] = useState([]);
   const [page, setPage] = useState(0);
   const [limit, setLimit] = useState(50);
@@ -139,6 +144,7 @@ const Bands = () => {
       });
   };
 
+  console.log(selectedBand);
   return (
     <>
       <BoxModal open={open} onClose={handleClose} header='Band'>
@@ -175,6 +181,16 @@ const Bands = () => {
             </BottomWrapper>
           </form>
         )}
+        {modalState === 'View' && (
+          <Box sx={{ display: 'flex', gap: '4px' }}>
+            <ViewText label='Band Name' text={selectedBand?.name} />
+            <ViewText label='Band Type' text={selectedBand?.bandType} />
+            <ViewText
+              label='Band Description'
+              text={selectedBand?.description}
+            />
+          </Box>
+        )}
       </BoxModal>
       <Box sx={{ p: 4 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: 2 }}>
@@ -198,15 +214,17 @@ const Bands = () => {
           </Typography>
           <AppButton onClick={handleCreate} label='Create Band' />
         </Box>
-        <CustomTable
-          title={''}
-          columns={BandSchema}
-          data={facilities}
-          pointerOnHover
-          highlightOnHover
-          striped
-          onRowClicked={handleRowClicked}
-        />
+        <Box sx={{ position: 'relative', zIndex: '0' }}>
+          <CustomTable
+            title={''}
+            columns={BandSchema}
+            data={facilities}
+            pointerOnHover
+            highlightOnHover
+            striped
+            onRowClicked={handleRowClicked}
+          />
+        </Box>
       </Box>
     </>
   );

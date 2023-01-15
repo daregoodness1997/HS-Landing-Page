@@ -98,6 +98,8 @@ const AcuteAbdominei = () => {
                   }}
                 />
               </div>
+
+              
             </div>
           </div>
         </div>
