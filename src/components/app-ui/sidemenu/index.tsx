@@ -25,6 +25,19 @@ export const menuItems = [
     to: '/app/emergency',
     iconClassName: 'bi bi-people',
   },
+  {
+    name: 'Admin',
+    exact: true,
+    to: '/app/admin',
+    iconClassName: 'bi bi-people',
+    subMenus: [
+      { name: 'Dashboard', to: '/app/admin' },
+      { name: 'Bands', to: '/app/admin/bands' },
+      { name: 'Employees', to: '/app/admin/employees' },
+      { name: 'Location', to: '/app/admin/location' },
+      { name: 'Organization', to: '/app/admin/organization' },
+    ],
+  },
 
   {
     name: 'Logout',

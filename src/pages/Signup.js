@@ -38,13 +38,21 @@ function Signup() {
     setTimeout(() => setLoaderTimer(false), 1500);
   }, []);
 
-  const onSubmit = async ({ email, password }) => {
+  const onSubmit = async ({
+    firstName,
+    lastName,
+    email,
+    password,
+    phoneNumber,
+  }) => {
     setLoading(true);
     await client
-      .authenticate({
-        strategy: 'local',
+      .create({
+        firstName,
+        lastName,
         email,
         password,
+        phoneNumber,
       })
       .then(res => {
         const user = {
@@ -56,7 +64,7 @@ function Signup() {
         setLoading(false);
         toast.success('You successfully created in');
 
-        navigate('/app');
+        navigate('/login');
       })
       .catch(err => {
         toast.error(
