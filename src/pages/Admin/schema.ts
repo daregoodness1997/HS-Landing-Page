@@ -54,7 +54,6 @@ export const createLocationSchema = yup.object().shape({
 
 export const createEmployeeSchema = yup.object().shape({
   firstname: yup.string().required('First Name is required!'),
-  middlename: yup.string(),
   lastname: yup.string().required('Last Name is required!'),
   profession: yup.string().required('Employee Profession is required!'),
   position: yup.string().required('Employee Position is required!'),
@@ -66,6 +65,7 @@ export const createEmployeeSchema = yup.object().shape({
   department: yup.string().required('Employee Department is required!'),
   depunit: yup.string(),
   password: yup.string().required('Password is required!'),
+  facility: yup.string(),
 });
 
 export const EmployeeSchema = [

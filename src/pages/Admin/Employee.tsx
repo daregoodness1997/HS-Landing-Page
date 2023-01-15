@@ -19,6 +19,8 @@ import { useForm } from 'react-hook-form';
 import { BottomWrapper } from '../../components/app-ui/styles';
 import AppButton from '../../components/app-ui/app-button';
 import PasswordInput from '../../components/app-ui/PasswordInput';
+import AddEmployee from './forms/AddEmployee';
+import ViewText from '../../components/app-ui/view-text';
 
 const Employees = () => {
   const data = localStorage.getItem('user') || '';
@@ -28,7 +30,17 @@ const Employees = () => {
   const EmployeeServe = client.service('employee');
 
   const [open, setOpen] = useState(false);
-  const [selectedBand, setSelectedBand] = useState();
+  const [selectedBand, setSelectedBand] = useState({
+    firstname: '',
+    middlename: '',
+    lastname: '',
+    profession: '',
+    position: '',
+    phone: '',
+    email: '',
+    department: '',
+    depunit: '',
+  });
   const [employees, setEmployees] = useState([]);
   const [page, setPage] = useState(0);
   const [limit, setLimit] = useState(50);
@@ -152,76 +164,33 @@ const Employees = () => {
     setLoading(false);
   };
 
+  const submit = async (data: any) => {
+    console.log(data);
+  };
+
+  console.log(selectedBand);
   return (
     <>
       <BoxModal open={open} onClose={handleClose} header='Employee'>
-        {modalState === 'Create' && (
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Box mb='1rem'>
-              <Input
-                label='First Name'
-                register={register('firstname')}
-                errorText={errors?.firstname?.message}
-              />
+        {modalState === 'Create' && <AddEmployee setOpen={setOpen} />}
+        {modalState === 'View' && (
+          <Box sx={{ width: '100%' }}>
+            <Box sx={{ display: 'flex', gap: '4px' }}>
+              <ViewText label='First Name' text={selectedBand?.firstname} />
+              <ViewText label='Middle Name' text={selectedBand?.middlename} />
+              <ViewText label='Last Name' text={selectedBand?.lastname} />
             </Box>
-            <Box mb='1rem'>
-              <Input
-                label='Middle Name'
-                register={register('middlename')}
-                errorText={errors?.middlename?.message}
-              />
+            <Box sx={{ display: 'flex', gap: '4px', mt: '20px' }}>
+              <ViewText label='Profession' text={selectedBand?.profession} />
+              <ViewText label='Position' text={selectedBand?.position} />
+              <ViewText label='Phone Number' text={selectedBand?.phone} />
             </Box>
-            <Box mb='1rem'>
-              <Input
-                label='Last Name'
-                register={register('lastname')}
-                errorText={errors?.lastname?.message}
-              />
+            <Box sx={{ display: 'flex', gap: '4px', mt: '20px' }}>
+              <ViewText label='Email Addresss' text={selectedBand?.email} />
+              <ViewText label='Department' text={selectedBand?.department} />
+              <ViewText label='Department  Unit' text={selectedBand?.depunit} />
             </Box>
-            <Box mb='1rem'>
-              <Input
-                label='Position'
-                register={register('position')}
-                errorText={errors?.position?.message}
-              />
-            </Box>
-            <Box mb='1rem'>
-              <Input
-                label='Phone'
-                type='tel'
-                register={register('phone')}
-                errorText={errors?.phone?.message}
-              />
-            </Box>
-            <Box mb='1rem'>
-              <Input
-                label='Email'
-                type='Email'
-                register={register('email')}
-                errorText={errors?.email?.message}
-              />
-            </Box>
-            <Box mb='1rem'>
-              <Input
-                label='Department'
-                register={register('department')}
-                errorText={errors?.department?.message}
-              />
-            </Box>
-            <Box mb='1rem'>
-              <Input
-                label='Department Unit'
-                register={register('depunit')}
-                errorText={errors?.depunit?.message}
-              />
-            </Box>
-
-            <PasswordInput register={register('password')} />
-            <BottomWrapper>
-              <button onClick={() => setOpen(false)}>Cancel</button>
-              <AppButton label='Save' type='submit' />
-            </BottomWrapper>
-          </form>
+          </Box>
         )}
       </BoxModal>
       <Box sx={{ p: 4 }}>
