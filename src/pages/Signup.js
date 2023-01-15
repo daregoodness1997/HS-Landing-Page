@@ -1,11 +1,6 @@
-import {
-  Box,
-  Checkbox,
-  FormControl,
-  FormControlLabel,
-  FormGroup,
-} from '@mui/material';
-import React, { useContext, useEffect, useState } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Box } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -15,20 +10,42 @@ import AuthWrapper from '../components/app-ui/AuthWrapper';
 import Button from '../components/app-ui/Button';
 import Input from '../components/app-ui/inputs/basic/Input';
 import PasswordInput from '../components/app-ui/PasswordInput';
-import { UserContext } from '../context';
 import client from '../feather';
+import { createEmployeeSchema } from './Admin/schema';
 
 function Signup() {
   const navigate = useNavigate();
+  const EmployeeServe = client.service('employee');
+  const data = localStorage.getItem('user') || '';
 
+  // const user = JSON.parse(data);
   const {
-    control,
+    register,
     handleSubmit,
     formState: { errors },
-  } = useForm({}); //   const { setUser } = useContext(UserContext);
-  const [keepMeIn, setKeepMeIn] = useState(false);
+  } = useForm({
+    resolver: yupResolver(createEmployeeSchema),
+
+    defaultValues: {
+      firstname: '',
+      middlename: '',
+      lastname: '',
+      profession: '',
+      position: '',
+      phone: '',
+      email: '',
+      department: '',
+      depunit: '',
+      password: '',
+      facility: '60203e1c1ec8a00015baa357',
+      // facility: user.currentEmployee.facilityDetail._id,
+    },
+  });
   const [loaderTimer, setLoaderTimer] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [message, setMessage] = useState('');
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -38,40 +55,28 @@ function Signup() {
     setTimeout(() => setLoaderTimer(false), 1500);
   }, []);
 
-  const onSubmit = async ({
-    firstName,
-    lastName,
-    email,
-    password,
-    phoneNumber,
-  }) => {
-    setLoading(true);
-    await client
-      .create({
-        firstName,
-        lastName,
-        email,
-        password,
-        phoneNumber,
-      })
-      .then(res => {
-        const user = {
-          ...res.user,
-          currentEmployee: { ...res.user.employeeData[0] },
-        };
-        // setUser(user);
-        localStorage.setItem('user', JSON.stringify(user));
-        setLoading(false);
-        toast.success('You successfully created in');
+  const onSubmit = async (data, e) => {
+    e.preventDefault();
+    setMessage('');
+    setError(false);
+    setSuccess(false);
+    data.createdby = '';
+    data.facility = '60203e1c1ec8a00015baa357';
 
-        navigate('/login');
+    setLoading(true);
+    await EmployeeServe.create(data)
+      .then(res => {
+        e.target.reset();
+        setSuccess(true);
+        toast.success(`User successfully created`);
+
+        setSuccess(false);
       })
       .catch(err => {
-        toast.error(
-          `Error registering in User, probable network issues  ${err}`
-        );
-        setLoading(false);
+        toast.error(`Sorry, You weren't able to create User. ${err}`);
       });
+
+    setLoading(false);
   };
 
   return (
@@ -83,96 +88,66 @@ function Signup() {
         <>
           <AuthWrapper paragraph='Create your account'>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <Box mt={2}>
-                <Controller
-                  name='firstName'
-                  control={control}
-                  render={({ field }) => (
-                    <Input
-                      {...field}
-                      label='First Name'
-                      placeholder='Enter your firstname'
-                    />
-                  )}
+              <Box mb='1rem'>
+                <Input
+                  label='First Name'
+                  register={register('firstname')}
+                  errorText={errors?.firstname?.message}
                 />
-
-                {errors.firstName && (
-                  <p style={{ color: 'blue', fontSize: '16px' }}>
-                    <> {errors.firstName?.message}</>
-                  </p>
-                )}
               </Box>
-              <Box mt={2}>
-                <Controller
-                  name='lastName'
-                  control={control}
-                  render={({ field }) => (
-                    <Input
-                      {...field}
-                      label='Last Name'
-                      placeholder='Enter your lastname'
-                    />
-                  )}
+              <Box mb='1rem'>
+                <Input
+                  label='Middle Name'
+                  register={register('middlename')}
+                  errorText={errors?.middlename?.message}
                 />
-                {errors.lastName && (
-                  <p style={{ color: 'blue', fontSize: '16px' }}>
-                    <>{errors.lastName?.message}</>
-                  </p>
-                )}
               </Box>
-
-              <Box mt={2}>
-                <Controller
-                  name='email'
-                  control={control}
-                  render={({ field }) => (
-                    <Input
-                      {...field}
-                      label='Email'
-                      placeholder='Enter your email'
-                    />
-                  )}
+              <Box mb='1rem'>
+                <Input
+                  label='Last Name'
+                  register={register('lastname')}
+                  errorText={errors?.lastname?.message}
                 />
-
-                {errors.email && (
-                  <p style={{ color: 'blue', fontSize: '16px' }}>
-                    <> {errors.email?.message}</>
-                  </p>
-                )}
               </Box>
-
-              <Box mt={2}>
-                <Controller
-                  name='phoneNumber'
-                  control={control}
-                  render={({ field }) => (
-                    <Input
-                      {...field}
-                      label='Phone Number'
-                      placeholder='Enter your email'
-                    />
-                  )}
+              <Box mb='1rem'>
+                <Input
+                  label='Position'
+                  register={register('position')}
+                  errorText={errors?.position?.message}
                 />
-
-                {errors.phoneNumber && (
-                  <p style={{ color: 'blue', fontSize: '16px' }}>
-                    <> {errors.phoneNumber?.message}</>
-                  </p>
-                )}
+              </Box>
+              <Box mb='1rem'>
+                <Input
+                  label='Phone'
+                  type='tel'
+                  register={register('phone')}
+                  errorText={errors?.phone?.message}
+                />
+              </Box>
+              <Box mb='1rem'>
+                <Input
+                  label='Email'
+                  type='Email'
+                  register={register('email')}
+                  errorText={errors?.email?.message}
+                />
+              </Box>
+              <Box mb='1rem'>
+                <Input
+                  label='Department'
+                  register={register('department')}
+                  errorText={errors?.department?.message}
+                />
+              </Box>
+              <Box mb='1rem'>
+                <Input
+                  label='Department Unit'
+                  register={register('depunit')}
+                  errorText={errors?.depunit?.message}
+                />
               </Box>
 
-              <Controller
-                name='password'
-                control={control}
-                render={({ field }) => <PasswordInput {...field} />}
-              />
-
-              {errors.password && (
-                <p style={{ color: 'blue', fontSize: '16px' }}>
-                  <>{errors.password?.message}</>
-                </p>
-              )}
-
+              <PasswordInput register={register('password')} />
               <p>
                 Already have an account?
                 <Link

@@ -24,6 +24,7 @@ const Employees = () => {
   const data = localStorage.getItem('user') || '';
 
   const user = JSON.parse(data);
+
   const EmployeeServe = client.service('employee');
 
   const [open, setOpen] = useState(false);
@@ -123,33 +124,32 @@ const Employees = () => {
     return () => {};
   }, []);
 
-  const onSubmit = (data, e) => {
+  const onSubmit = async (data, e) => {
     e.preventDefault();
-    if (data.bandType === '') {
-      alert('Kindly choose band type');
-      return;
-    }
     setMessage('');
     setError(false);
     setSuccess(false);
-    // data.createdby=user._id
-    console.log(data);
+    data.createdby = user._id;
+    data.facility = user.currentEmployee.facilityDetail._id;
+
     if (user.currentEmployee) {
-      data.facility = user.currentEmployee.facilityDetail._id; // or from facility dropdown
     }
-    EmployeeServe.create(data)
+
+    setLoading(true);
+    await EmployeeServe.create(data)
       .then(res => {
-        //console.log(JSON.stringify(res))
         e.target.reset();
-        /*  setMessage("Created Band successfully") */
         setSuccess(true);
-        toast.success('Band Sucessfully created');
+        toast.success(`Employee successfully created`);
         setOpen(false);
+        console.log('Employee successfully created');
         setSuccess(false);
       })
       .catch(err => {
-        toast.error(`Error creating band  ${err}`);
+        toast.error(`Sorry, You weren't able to create a employee. ${err}`);
       });
+
+    setLoading(false);
   };
 
   return (
@@ -157,48 +157,65 @@ const Employees = () => {
       <BoxModal open={open} onClose={handleClose} header='Employee'>
         {modalState === 'Create' && (
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Input
-              label='First Name'
-              register={register('firstname')}
-              errorText={errors?.firstname?.message}
-            />
-            <Input
-              label='Middle Name'
-              register={register('middlename')}
-              errorText={errors?.middlename?.message}
-            />
-            <Input
-              label='Last Name'
-              register={register('lastname')}
-              errorText={errors?.lastname?.message}
-            />
-            <Input
-              label='Position'
-              register={register('position')}
-              errorText={errors?.position?.message}
-            />
-            <Input
-              label='Phone'
-              type='tel'
-              register={register('phone')}
-              errorText={errors?.phone?.message}
-            />
-            <Input
-              label='Email'
-              type='Email'
-              register={register('email')}
-              errorText={errors?.email?.message}
-            />
-            <Input
-              label='Department'
-              register={register('department')}
-              errorText={errors?.department?.message}
-            />
-            <Input
-              label='Department Unit'
-              register={register('depunit')}
-              errorText={errors?.depunit?.message}
-            />
+            <Box mb='1rem'>
+              <Input
+                label='First Name'
+                register={register('firstname')}
+                errorText={errors?.firstname?.message}
+              />
+            </Box>
+            <Box mb='1rem'>
+              <Input
+                label='Middle Name'
+                register={register('middlename')}
+                errorText={errors?.middlename?.message}
+              />
+            </Box>
+            <Box mb='1rem'>
+              <Input
+                label='Last Name'
+                register={register('lastname')}
+                errorText={errors?.lastname?.message}
+              />
+            </Box>
+            <Box mb='1rem'>
+              <Input
+                label='Position'
+                register={register('position')}
+                errorText={errors?.position?.message}
+              />
+            </Box>
+            <Box mb='1rem'>
+              <Input
+                label='Phone'
+                type='tel'
+                register={register('phone')}
+                errorText={errors?.phone?.message}
+              />
+            </Box>
+            <Box mb='1rem'>
+              <Input
+                label='Email'
+                type='Email'
+                register={register('email')}
+                errorText={errors?.email?.message}
+              />
+            </Box>
+            <Box mb='1rem'>
+              <Input
+                label='Department'
+                register={register('department')}
+                errorText={errors?.department?.message}
+              />
+            </Box>
+            <Box mb='1rem'>
+              <Input
+                label='Department Unit'
+                register={register('depunit')}
+                errorText={errors?.depunit?.message}
+              />
+            </Box>
+
             <PasswordInput register={register('password')} />
             <BottomWrapper>
               <button onClick={() => setOpen(false)}>Cancel</button>
@@ -229,15 +246,17 @@ const Employees = () => {
           </Typography>
           <AppButton onClick={handleCreate} label='Create Employee' />
         </Box>
-        <CustomTable
-          title={''}
-          columns={EmployeeSchema}
-          data={employees}
-          pointerOnHover
-          highlightOnHover
-          striped
-          onRowClicked={handleRowClicked}
-        />
+        <Box sx={{ position: 'relative', zIndex: '0' }}>
+          <CustomTable
+            title={''}
+            columns={EmployeeSchema}
+            data={employees}
+            pointerOnHover
+            highlightOnHover
+            striped
+            onRowClicked={handleRowClicked}
+          />
+        </Box>
       </Box>
     </>
   );
