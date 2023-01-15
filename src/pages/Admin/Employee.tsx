@@ -8,11 +8,17 @@ import CustomSelect from '../../components/app-ui/inputs/basic/Select';
 import Textarea from '../../components/app-ui/inputs/basic/Textarea';
 import BoxModal from '../../components/app-ui/modal/BoxModal';
 import client from '../../feather';
-import { BandSchema, createBandSchema, EmployeeSchema } from './schema';
+import {
+  BandSchema,
+  createBandSchema,
+  createEmployeeSchema,
+  EmployeeSchema,
+} from './schema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { BottomWrapper } from '../../components/app-ui/styles';
 import AppButton from '../../components/app-ui/app-button';
+import PasswordInput from '../../components/app-ui/PasswordInput';
 
 const Employees = () => {
   const data = localStorage.getItem('user') || '';
@@ -44,12 +50,19 @@ const Employees = () => {
     reset,
     formState: { isSubmitSuccessful, errors },
   } = useForm({
-    resolver: yupResolver(createBandSchema),
+    resolver: yupResolver(createEmployeeSchema),
 
     defaultValues: {
-      name: '',
-      bandType: '',
-      description: '',
+      firstname: '',
+      middlename: '',
+      lastname: '',
+      profession: '',
+      position: '',
+      phone: '',
+      email: '',
+      department: '',
+      depunit: '',
+      password: '',
       facility: user.currentEmployee.facilityDetail._id,
     },
   });
@@ -141,36 +154,54 @@ const Employees = () => {
 
   return (
     <>
-      <BoxModal open={open} onClose={handleClose} header='Band'>
+      <BoxModal open={open} onClose={handleClose} header='Employee'>
         {modalState === 'Create' && (
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Grid>
-              <Box mb='1rem'>
-                <Input
-                  label='Name of Band'
-                  register={register('name')}
-                  errorText={errors?.name?.message}
-                  sx={{ marginBottom: '2rem' }}
-                />
-              </Box>
-              <Box mb='1rem'>
-                <CustomSelect
-                  label='Choose Band Type'
-                  name='bandType'
-                  options={bandTypeOptions}
-                  register={register('bandType')}
-                />
-              </Box>
-              <Box>
-                <Textarea
-                  label='Description'
-                  register={register('description')}
-                  name='description'
-                />
-              </Box>
-            </Grid>
+            <Input
+              label='First Name'
+              register={register('firstname')}
+              errorText={errors?.firstname?.message}
+            />
+            <Input
+              label='Middle Name'
+              register={register('middlename')}
+              errorText={errors?.middlename?.message}
+            />
+            <Input
+              label='Last Name'
+              register={register('lastname')}
+              errorText={errors?.lastname?.message}
+            />
+            <Input
+              label='Position'
+              register={register('position')}
+              errorText={errors?.position?.message}
+            />
+            <Input
+              label='Phone'
+              type='tel'
+              register={register('phone')}
+              errorText={errors?.phone?.message}
+            />
+            <Input
+              label='Email'
+              type='Email'
+              register={register('email')}
+              errorText={errors?.email?.message}
+            />
+            <Input
+              label='Department'
+              register={register('department')}
+              errorText={errors?.department?.message}
+            />
+            <Input
+              label='Department Unit'
+              register={register('depunit')}
+              errorText={errors?.depunit?.message}
+            />
+            <PasswordInput register={register('password')} />
             <BottomWrapper>
-              <button onClick={() => setOpen(false)}>Clear</button>
+              <button onClick={() => setOpen(false)}>Cancel</button>
               <AppButton label='Save' type='submit' />
             </BottomWrapper>
           </form>

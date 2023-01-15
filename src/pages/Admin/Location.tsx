@@ -11,6 +11,7 @@ import client from '../../feather';
 import {
   BandSchema,
   createBandSchema,
+  createLocationSchema,
   EmployeeSchema,
   LocationSchema,
 } from './schema';
@@ -54,7 +55,7 @@ const Locations = () => {
     reset,
     formState: { isSubmitSuccessful, errors },
   } = useForm({
-    resolver: yupResolver(createBandSchema),
+    resolver: yupResolver(createLocationSchema),
 
     defaultValues: {
       name: '',
@@ -120,28 +121,30 @@ const Locations = () => {
   }, []);
 
   const onSubmit = (data, e) => {
-    e.preventDefault();
-
+    // e.preventDefault();
     if (data.locationType === '') {
-      alert('Kindly choose locatin type');
+      alert('Kindly choose location type');
       return;
     }
     setMessage('');
     setError(false);
     setSuccess(false);
-    // data.createdby=user._id
+    data.createdby = user._id;
     if (user.currentEmployee) {
       data.facility = user.currentEmployee.facilityDetail._id; // or from facility dropdown
     }
     LocationServ.create(data)
       .then(res => {
+        console.log(JSON.stringify(res));
         e.target.reset();
+        /*  setMessage("Created Location successfully") */
         setSuccess(true);
         toast.success('Location Sucessfully created');
         setOpen(false);
         setSuccess(false);
       })
       .catch(err => {
+        console.log(err);
         toast.error(`Error creating Location  ${err}`);
       });
   };
@@ -170,7 +173,7 @@ const Locations = () => {
               </Box>
             </Grid>
             <BottomWrapper>
-              <button onClick={() => setOpen(false)}>Clear</button>
+              <button onClick={() => setOpen(false)}>Cancel</button>
               <AppButton label='Save' type='submit' />
             </BottomWrapper>
           </form>

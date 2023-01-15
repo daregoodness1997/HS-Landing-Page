@@ -170,7 +170,7 @@ const Bands = () => {
               </Box>
             </Grid>
             <BottomWrapper>
-              <button onClick={() => setOpen(false)}>Clear</button>
+              <button onClick={() => setOpen(false)}>Cancel</button>
               <AppButton label='Save' type='submit' />
             </BottomWrapper>
           </form>
