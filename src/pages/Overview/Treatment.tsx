@@ -97,15 +97,7 @@ const Treatment = () => {
               }}
             />
           </Grid>
-          <Grid item xs={6} sm={4} md={4}>
-            <ModuleCard
-              label='Coma'
-              onClick={() => {
-                handleOpen();
-                setContent('Coma');
-              }}
-            />
-          </Grid>
+        
         </Grid>
       </Box>
     </>
